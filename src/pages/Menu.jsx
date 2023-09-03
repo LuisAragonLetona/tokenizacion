@@ -4,9 +4,10 @@ import lacchain from '../img/lacchain.png'
 export default function Menu(props) {
     const functionwallet = props.conectarWallet;
     const balance = props.balance;
+    const metamask = props.metamask;
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <img src={lacchain} style={{ width: '100px' }} alt="..."></img>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,15 +40,12 @@ export default function Menu(props) {
                         <li className="nav-item">
                             <a className="nav-link" href="/#">Contáctanos</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/#">{balance}</a>
-                        </li>
                     </ul>
                     <span className="d-flex">
                         <button type="button" className="btn btn-outline-dark text-bg-light">login</button>
-                        <button type="button" className="btn btn-outline-dark text-bg-light ms-2" onClick={functionwallet}>Conectar Wallet</button>
+                        {metamask ? (<button type="button" className="btn btn-outline-dark text-bg-light ms-2" onClick={functionwallet}>Conectar Wallet</button>) : (<button type="button" className="btn btn-outline-dark text-bg-light ms-2" onClick={functionwallet}>Wallet Conectada</button>)}
+                        
                     </span>
-
                 </div>
             </div>
         </nav>

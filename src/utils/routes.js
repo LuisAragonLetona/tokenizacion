@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import Principal from '../pages/Principal';
+import Sesion from '../pages/Sesion';
 
 const routes = () => [
   {
@@ -13,6 +14,7 @@ const routes = () => [
   {
     path: '/',
     children: [
+      { path: 'sesion', element: <Sesion></Sesion> },
       { path: 'mercado', element: <>Mercado</> },
       { path: 'sesion', element: <>Login y Registro</> },
       { path: 'perfil', element: <>Mi perfil</> },

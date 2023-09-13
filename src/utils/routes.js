@@ -14,6 +14,7 @@ const routes = () => [
     path: '/',
     children: [
       { path: 'mercado', element: <>Mercado</> },
+      { path: 'sesion', element: <>Login y Registro</> },
       { path: 'perfil', element: <>Mi perfil</> },
       { path: 'mensajes', element: <>Mensajes</> },
       { path: 'contratos', element: <>Contratos</> },

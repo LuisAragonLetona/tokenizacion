@@ -727,10 +727,6 @@ a:hover {
   visibility: collapse;
 }
 
-.absolute {
-  position: absolute;
-}
-
 .relative {
   position: relative;
 }
@@ -801,6 +797,10 @@ a:hover {
 
 .items-center {
   align-items: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .p-0 {
@@ -877,5 +877,16 @@ a:hover {
 
   .xl\:text-left {
     text-align: left;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .\32xl\:pr-10 {
+    padding-right: 2.5rem;
   }
 }

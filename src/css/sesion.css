@@ -5,7 +5,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body {
+.overflow-sesion {
     height: 100vh;
     display: flex;
     align-items: center;

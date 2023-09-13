@@ -2,10 +2,10 @@ import AboutImg from './img/about.png';
 import HeroImage from './img/HeroImage.png';
 
 export const heroData = {
-    title: `Lorem, ipsum dolor sit.`,
+    title: `Tokenización`,
     subtitle:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, facere placeat id quod obcaecati, neque iusto velit!',
-    btnText: 'Get Started',
+        'Nuestra plataforma de tokenización es una innovación financiera que convierte activos en tokens digitales, brindando seguridad y transparencia a inversores y propietarios. Cumplimos con altos estándares de regulación y ofrecemos herramientas para la gestión de activos, impulsando nuevas oportunidades de inversión.',
+    btnText: 'Iniciar Sesión',
     image: HeroImage,
 }
 export const aboutData = {

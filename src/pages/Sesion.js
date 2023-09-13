@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/sesion.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
@@ -22,7 +21,7 @@ export default function Sesion(props) {
     });
 
     function registrar(){
-        event.preventDefault();
+        // event.preventDefault();
         var name = document.getElementById('nombre').value;
         var email = document.getElementById('email').value;
         var txtCredentials = document.getElementById("txtCredentials");
@@ -31,13 +30,13 @@ export default function Sesion(props) {
         if (name.length > 0 && email.length > 0 && constrasena.length > 0){
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function (){
-                if (this.readyState == 4 && this.status == 200){
+                if (this.readyState === 4 && this.status === 200){
                     var response = this.responseText
                 }
-                if (response == 0){
+                if (response === 0){
                     txtCredentials.innerHTML = 'Estaas registrado';
                     botonregistrar.disabled = true;
-                }else if (response == 1){
+                }else if (response === 1){
                     window.location.href = 'https://www.youtube.com/';
                 }
             };
@@ -50,18 +49,18 @@ export default function Sesion(props) {
     }
 
     function showHint(){
-        event.preventDefault();
+        // event.preventDefault();
         var email = document.getElementById("email2").value;
         var password = document.getElementById("password").value;
         var txtCredentials = document.getElementById("txtLogin");
         if (email.length > 0 && password.length > 0){
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function (){
-                if (this.readyState == 4 && this.status == 200){
+                if (this.readyState === 4 && this.status === 200){
                     var response = this.responseText
                 }
                 console.log(response);
-                if (response == 0){
+                if (response === 0){
                     txtCredentials.innerHTML = 'Usuario o contraseña incorrecta, por favor intente nuevamente.';
                     txtCredentials.animate({
                         opacity: [1, 0]
@@ -71,7 +70,7 @@ export default function Sesion(props) {
                     })
                     document.getElementById("email2").select();
                 }
-                if (response == 1){
+                if (response === 1){
                     window.location.href = 'https://www.youtube.com/';
                 }
             };
@@ -86,7 +85,7 @@ export default function Sesion(props) {
     /*-----*/ 
 
     return (
-        <div className="overflow-hidden">
+        <div className="overflow-sesion">
             <div className="container-form sign-up">
                 <div className="message">
                     <h2>Bienvenido a TokenizacionSV</h2>
@@ -94,52 +93,52 @@ export default function Sesion(props) {
                     <button className="sign-up-btn">Iniciar Sesion</button>
                 </div>
             </div>
-            <form class="formulario">
-                <h2 class="create-account">Crear una cuenta</h2>
-                <div class="iconos">
-                    <div class="border-icon">
-                        <i class='bx bxl-instagram'></i>
+            <form className="formulario">
+                <h2 className="create-account">Crear una cuenta</h2>
+                <div className="iconos">
+                    <div className="border-icon">
+                        <i className='bx bxl-instagram'></i>
                     </div>
-                    <div class="border-icon">
-                        <i class='bx bxl-linkedin'></i>
+                    <div className="border-icon">
+                        <i className='bx bxl-linkedin'></i>
                     </div>
-                    <div class="border-icon">
-                        <i class='bx bxl-facebook-circle'></i>
+                    <div className="border-icon">
+                        <i className='bx bxl-facebook-circle'></i>
                     </div>
                 </div>
-                <p class="cuenta-gratis">Crear una cuenta gratis</p>
+                <p className="cuenta-gratis">Crear una cuenta gratis</p>
                 <input type="text" id="nombre" placeholder="Nombre"></input>
                 <input type="email" id="email" placeholder="Email"></input>
                 <input type="password" id="pass" placeholder="Contraseña"></input>
-                <button class="registrar" id="registrarse" type="submit" onclick="registrar()">Registrarse</button>
+                <button className="registrar" id="registrarse" type="submit" onClick={registrar}>Registrarse</button>
                 <span id="txtCredentials"></span>
             </form>
 
-            <div class="container-form sign-in">
-                <form class="formulario">
-                    <h2 class="create-account">Iniciar Sesion</h2>
-                    <div class="iconos">
-                        <div class="border-icon">
-                            <i class='bx bxl-instagram'></i>
+            <div className="container-form sign-in">
+                <form className="formulario">
+                    <h2 className="create-account">Iniciar Sesion</h2>
+                    <div className="iconos">
+                        <div className="border-icon">
+                            <i className='bx bxl-instagram'></i>
                         </div>
-                        <div class="border-icon">
-                            <i class='bx bxl-linkedin'></i>
+                        <div className="border-icon">
+                            <i className='bx bxl-linkedin'></i>
                         </div>
-                        <div class="border-icon">
-                            <i class='bx bxl-facebook-circle'></i>
+                        <div className="border-icon">
+                            <i className='bx bxl-facebook-circle'></i>
                         </div>
                     </div>
-                    <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p>
+                    <p className="cuenta-gratis">¿Aun no tienes una cuenta?</p>
                     <input id="email2" type="email" placeholder="Email"></input>
                     <input id="password" type="password" placeholder="Contraseña"></input>
-                    <button class="iniciar_sesion" type="submit" onclick="showHint()">Iniciar sesion</button>
+                    <button className="iniciar_sesion" type="submit" onClick={showHint}>Iniciar sesion</button>
                     <span id="txtLogin"></span>
                 </form>
-                <div class="welcome-back">
-                    <div class="message">
+                <div className="welcome-back">
+                    <div className="message">
                         <h2>Bienvenido de nuevo</h2>
                         <p>Si aun no tienes una cuenta por favor registrese aqui</p>
-                        <button type="submit" class="sign-in-btn">Registrarse</button>
+                        <button type="submit" className="sign-in-btn">Registrarse</button>
                     </div>
                 </div>
             </div>

@@ -1,29 +1,16 @@
 import React, { useState } from 'react';
 import '../css/sidebar.css';
-import Carousel from './Carousel';
-import Cards from './Cards';
-import Solutions from './Solutions';
-import MensajeMMW from './MensajeMMW';
 
 function Sidebar(props) {
-  const walletBalance = props.balance;
-  const walletAddress = props.account;
-  const conectarWallet = props.conectarWallet;
-  const metamask = props.metamask;
-
+  const contenido = props.contenido;
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [showWalletMessage, setShowWalletMessage] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const handleWalletClick = async () => {
-    setShowWalletMessage(!showWalletMessage);
-  };
-
   return (
-    <div className="d-flex">
+    <>
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="logo-details">
           <div className="logo_name">Tokenizacion</div>
@@ -50,7 +37,7 @@ function Sidebar(props) {
             <span className="tooltip">Mi Perfil</span>
           </li>
           <li>
-            <a href="#">
+            <a href="/mensajes">
               <i className="bx bx-mail-send"></i>
               <span className="links_name">Mensajes</span>
             </a>
@@ -71,7 +58,7 @@ function Sidebar(props) {
             <span className="tooltip">Rastreo de Titulos</span>
           </li>
           <li>
-            <a href="#" onClick={handleWalletClick}>
+            <a href="#">
               <i className="bx bx-wallet-alt"></i>
               <span className="links_name">Billetera</span>
             </a>
@@ -102,21 +89,12 @@ function Sidebar(props) {
             <i className="bx bx-log-out" id="log_out"></i>
           </li>
         </ul>
+
       </div>
-      <Carousel></Carousel>
-      <div className="mt-3">
-        <section className={`home-section ${showWalletMessage ? '' : 'd-none'}`}>
-          <MensajeMMW
-            metamaskDetected={true}
-            connectedToPlatform={!metamask}
-            onConnectWallet={conectarWallet}
-            walletAddress={walletAddress}
-            walletBalance={walletBalance}
-          />
-        </section>
-      </div>
-    </div >
+      <section className="home-section">
+        <div className="text">{contenido}</div>
+      </section>
+    </>
   );
 }
-
 export default Sidebar;

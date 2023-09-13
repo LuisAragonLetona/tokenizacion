@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //import hero data
 import { heroData } from '../data'
 import Header from './Header';
-import { Link } from 'react-router-dom';
 const Hero = () => {
     //Destruture hero data
     const { title, subtitle, btnText, image } = heroData;
@@ -17,7 +17,7 @@ const Hero = () => {
                     <div className='text-center xl:text-left xl:absolute'>
                         <h1 className='h1 xl:max-w-[700px] mb-6 lg:mb-12' data-aos='fade-down' data-aos-delay='400'>{title+ancho}</h1>
                         <p className='lead xl:max-w-[380px] mb-6 lg:mb-12' data-aos='fade-down' data-aos-delay='500'> {subtitle} </p>
-                        <Link to={'/sesion'}>
+                        <Link to={'/general'}>
                         <button className='btn btn-primary mb-8 xl:mb-0' data-aos='fade-down' data-aos-delay='600'>{btnText}</button>
                         </Link>
                     </div>

@@ -3,7 +3,7 @@ import './App.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { firebaseConfig } from './utils/FirebaseUtil';
 import routes from './utils/Rutas';
 
@@ -60,11 +60,9 @@ function App() {
   const routeElements = routes().map(route => <Route key={route.path} path={route.path} element={route.element}>{route.children && route.children.map(child => <Route key={child.path} path={child.path} element={child.element} />)}</Route>);
 
   return (
-    // <Router>
-      <Routes>
-        {routeElements}
-      </Routes>
-    // </Router>
+    <Routes>
+      {routeElements}
+    </Routes>
   );
 }
 

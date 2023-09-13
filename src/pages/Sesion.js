@@ -1,5 +1,6 @@
 import React from 'react';
 import Aos from 'aos';
+import '../css/sesion.css';
 import 'aos/dist/aos.css';
 
 export default function Sesion(props) {

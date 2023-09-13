@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import ModalProducto from './ModalProducto'; // Importa el componente Modal
 import '../css/mercado.css';
+import Sidebar from './Sidebar';
 
 const Mercado = () => {
   const [showModal, setShowModal] = useState(false);
@@ -33,9 +34,9 @@ const Mercado = () => {
     setSelectedProduct(null);
     setShowModal(false);
   };
-
-  return (
-    <div className="marketplace">
+  const Test = () => {
+    return (
+      <div className="marketplace">
       <h1 className="header">PRODUCTOS DISPONIBLES</h1>
       <div className="barra-busqueda">
         {/* ... Input de búsqueda y botón de búsqueda ... */}
@@ -79,6 +80,13 @@ const Mercado = () => {
         />
       )}
     </div>
+    )
+  };
+
+  return (
+    <div>
+        <Sidebar contenido={<Test/>} />
+      </div>
   );
 };
 

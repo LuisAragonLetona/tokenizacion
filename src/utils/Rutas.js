@@ -6,10 +6,6 @@ import General from '../pages/General';
 import Mensajes from '../pages/Mensajes';
 
 const Rutas = () => {
-  let location = useLocation();
-  if (location.pathname === '/sesion') {
-    // require('../css/sesion.css');
-  }
   const routes = [
     {
       path: 'app',

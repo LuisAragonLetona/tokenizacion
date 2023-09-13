@@ -5,7 +5,7 @@ export const heroData = {
     title: `Lorem, ipsum dolor sit.`,
     subtitle:
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, facere placeat id quod obcaecati, neque iusto velit!',
-    btnText: 'Get Started',
+    btnText: 'Login',
     image: HeroImage,
 }
 export const aboutData = {

@@ -1,5 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import Principal from '../pages/Principal';
+import Mensajes from '../pages/Mensajes';
+import General from '../pages/General';
 
 const routes = () => [
   {
@@ -16,12 +18,13 @@ const routes = () => [
       { path: 'mercado', element: <>Mercado</> },
       { path: 'sesion', element: <>Login y Registro</> },
       { path: 'perfil', element: <>Mi perfil</> },
-      { path: 'mensajes', element: <>Mensajes</> },
+      { path: 'mensajes', element: <Mensajes/> },
       { path: 'contratos', element: <>Contratos</> },
       { path: 'rastreo', element: <>Rastreo de títulos</> },
       { path: 'billetera', element: <>Wallet</> },
       { path: 'soporte', element: <>Soporte</> },
       { path: 'tercon', element: <>Terminos y condiciones</> },
+      { path: 'general', element: <General/> },
       { path: '404', element: <>Error404</> },
       {
         path: '',

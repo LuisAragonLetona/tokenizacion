@@ -8,9 +8,9 @@
   font-family: "Poppins" , sans-serif;
 }
 .sidebar{
-  /* position: fixed;
+  position: fixed;
   left: 0;
-  top: 0; */
+  top: 0;
   height: 100%;
   width: 78px;
   background: #11101D;
@@ -71,7 +71,7 @@
 }
 .sidebar li{
   position: relative;
-  margin-left: -30px;
+  margin: 8px 0;
   list-style: none;
 }
 .sidebar li .tooltip{
@@ -175,7 +175,7 @@
   position: fixed;
   height: 60px;
   width: 78px;
-  left: 30px;
+  left: 0;
   bottom: -8px;
   padding: 10px 14px;
   background: #1d1b31;
@@ -224,19 +224,28 @@
   background: none;
 }
 .home-section{
+  position: relative;
+  background: #E4E9F7;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
   transition: all 0.5s ease;
+  z-index: 2;
 }
 .sidebar.open ~ .home-section{
   left: 250px;
   width: calc(100% - 250px);
 }
-
+.home-section .text{
+  display: inline-block;
+  color: #11101d;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px
+}
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;
   }
-}
-
-.wallet-address {
-  word-wrap: break-word;
 }

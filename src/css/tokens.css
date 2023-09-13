@@ -1,0 +1,102 @@
+/* Estilos para el componente Tokens */
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+  }
+  
+  .header {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    text-align: center; /* Alinea el texto al centro */
+  }
+  
+  .cards-gestion-tokens {
+    display: flex;
+    flex-wrap: wrap; /* Agrega flex-wrap para que las cards se ajusten en una fila cuando sea necesario */
+    justify-content: center;
+    max-width: 100%; /* Asegura que las cards no excedan el ancho de la pantalla */
+  }
+  
+  .card-gestion-tokens {
+    flex: 1;
+    max-width: 300px;
+    min-width: 250px; /* Define un ancho mínimo para las cards */
+    margin: 16px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    transition: transform 0.2s; /* Agrega una transición suave al hacer hover */
+  }
+  
+  .card-gestion-tokens:hover {
+    transform: scale(1.05); /* Cambia el tamaño de la card al hacer hover */
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Estilos para las tarjetas de los tokens */
+
+  .token-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  } 
+  
+  .token-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+  }
+
+  .token-card:hover {
+    transform: scale(1.05); /* Cambia el tamaño de la card al hacer hover */
+  }
+
+  .header {
+    color: #222524;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 16px;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #363636;
+    margin-top: 8px;
+  }
+  
+  .button-tokens {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 16px;
+    width: 75%;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

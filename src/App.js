@@ -1,25 +1,27 @@
 import './App.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { default as Menu } from './pages/Menu';
+import { default as Solutions } from './pages/Solutions';
+import Cards from './pages/Cards';
+import Footer from './pages/Footer';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import { Routes, Route } from "react-router-dom";
-import { firebaseConfig } from './utils/FirebaseUtil';
-import routes from './utils/Rutas';
-
+import Sidebar from './pages/Sidebar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 
 function App() {
-  firebaseConfig();
+
   const [metamask, setMetamask] = useState(false);
   const [web3, setWeb3] = useState(null); //guardar instancia de web3
   const [account, setAccount] = useState(null); // guardar cuenta
   const [balance, setBalance] = useState(null);// guardar el balance
 
   const { ethereum } = window;
-
+  
   const conectarWallet = async () => {
     console.log("conectar Wallet");
     if (typeof window.ethereum !== 'undefined') {
@@ -57,12 +59,14 @@ function App() {
     Wallet();
   }, []);
 
-  const routeElements = routes().map(route => <Route key={route.path} path={route.path} element={route.element}>{route.children && route.children.map(child => <Route key={child.path} path={child.path} element={child.element} />)}</Route>);
-
   return (
-    <Routes>
-      {routeElements}
-    </Routes>
+    <>
+      <Menu conectarWallet={conectarWallet} balance={balance} metamask={metamask}></Menu>
+      <Sidebar account={account} balance={balance} conectarWallet={conectarWallet} metamask={metamask}></Sidebar>
+      <Cards></Cards>
+      <Solutions></Solutions>
+      <Footer></Footer>
+    </>
   );
 }
 

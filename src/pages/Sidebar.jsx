@@ -24,7 +24,7 @@ function Sidebar(props) {
             <span className="tooltip">Buscar</span>
           </li>
           <li>
-            <a href="#">
+            <a href="/mercado">
               <i className="bx bx-store"></i>
               <span className="links_name">Mercado</span>
             </a>

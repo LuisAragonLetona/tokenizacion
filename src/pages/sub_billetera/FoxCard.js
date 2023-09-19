@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/PW.css';
+ import '../../css/PW.css';
 import metalog from '../../img/metamaskFox.png';
 import Curve from '../../img/curved14.jpg';
 

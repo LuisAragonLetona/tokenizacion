@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/sidebar.css';
+import perfil from '../img/lacchain.png';
 
 function Sidebar(props) {
   const contenido = props.contenido;
@@ -30,7 +31,7 @@ function Sidebar(props) {
             <span className="tooltip">Mercado</span>
           </li>
           <li>
-            <a href="#">
+          <a href="/perfil">
               <i className="bx bx-user"></i>
               <span className="links_name">Mi Perfil</span>
             </a>
@@ -58,7 +59,7 @@ function Sidebar(props) {
             <span className="tooltip">Rastreo de Titulos</span>
           </li>
           <li>
-            <a href="#">
+            <a href="/Billetera">
               <i className="bx bx-wallet-alt"></i>
               <span className="links_name">Billetera</span>
             </a>
@@ -72,7 +73,7 @@ function Sidebar(props) {
             <span className="tooltip">Soporte</span>
           </li>
           <li>
-            <a href="#">
+          <a href="/tercon">
               <i className="bx bx-clipboard"></i>
               <span className="links_name">Ter&Con</span>
             </a>
@@ -80,7 +81,7 @@ function Sidebar(props) {
           </li>
           <li className="profile">
             <div className="profile-details">
-              <img src="profile.jpg" alt="profileImg" />
+              <img src={perfil} alt="profileImg" />
               <div className="name_job">
                 <div className="name">Nameles</div>
                 <div className="job">M.C.A.L.R.G</div>

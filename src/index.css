@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  .drop-shadow-primary {
+    @apply drop-shadow;
+    /* Aquí puedes agregar cualquier otro estilo que quieras para esta clase */
+  }
+
   body {
     @apply font-secondary text-secondary bg-gradient-to-b from-[#F6FAFD] to-[#FFFFFF] bg-no-repeat;
   }
@@ -33,7 +38,7 @@
   }
 
   .btn-quaternary {
-    @apply bg-white text-base font-bold text-primary drop-shadow-primary hover:bg-accent-p
+    @apply bg-white text-base font-bold text-primary drop-shadow-primary hover:bg-accent-primary
   }
 
   .h1 {

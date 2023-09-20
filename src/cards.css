@@ -1,0 +1,42 @@
+/* cards.css */
+.section-margin {
+    margin: 0 25px; /* Margen a ambos lados del contenedor */
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    margin: 0 15px; /* Añade margen izquierdo y derecho al contenedor de las tarjetas */
+}
+
+.item-comparador-tarjeta {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    margin: 10px; /* Margen positivo para compensar el margen negativo del contenedor */
+    text-align: center;
+}
+
+.item-comparador-tarjeta .item-comparador-tarjeta-nombre {
+    font-size: 18px;
+    color: #333333;
+    margin-top: 10px;
+}
+
+.cards-thin-btn button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cards-thin-btn button:hover {
+    background-color: #4527f1;  
+}

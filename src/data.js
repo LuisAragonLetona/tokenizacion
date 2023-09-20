@@ -1,6 +1,24 @@
 import AboutImg from './img/about.png';
 import HeroImage from './img/HeroImage.png';
 
+export const navigationData = [
+    {
+        name:'Persona',
+        href: '#'
+    },
+    {
+        name:'Acerca de nosotros',
+        href: '#'
+    },
+    {
+        name:'Características',
+        href: '#'
+    },
+    {
+        name:'Contáctanos',
+        href: '#'
+    }
+];
 export const heroData = {
     title: `Tokenización`,
     subtitle:

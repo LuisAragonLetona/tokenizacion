@@ -3,6 +3,7 @@ import '../css/cards.css';
 import Hero from './Hero';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import AcercaDe from './AcercaDe';
 
 export default function Principal(props) {
     Aos.init({
@@ -13,6 +14,7 @@ export default function Principal(props) {
     return (
         <div className="overflow-hidden">
             <Hero />
+            <AcercaDe/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import Principal from '../pages/Principal';
 import Sesion from '../pages/Sesion';
 import Mercado from '../pages/Mercado';
@@ -18,17 +18,17 @@ const Rutas = () => {
     {
       path: '/',
       children: [
-        { path: 'sesion', element: <Sesion/> },
-        { path: 'mercado', element: <Mercado/> },
+        { path: 'sesion', element: <Sesion /> },
+        { path: 'mercado', element: <Mercado /> },
         { path: 'sesion', element: <>Login y Registro</> },
         { path: 'perfil', element: <>Mi perfil</> },
-        { path: 'mensajes', element: <Mensajes/> },
+        { path: 'mensajes', element: <Mensajes /> },
         { path: 'contratos', element: <>Contratos</> },
         { path: 'rastreo', element: <>Rastreo de títulos</> },
         { path: 'billetera', element: <>Wallet</> },
         { path: 'soporte', element: <>Soporte</> },
         { path: 'tercon', element: <>Terminos y condiciones</> },
-        { path: 'general', element: <General/> },
+        { path: 'general', element: <General /> },
         { path: '404', element: <>Error404</> },
         {
           path: '',

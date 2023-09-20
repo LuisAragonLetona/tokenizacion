@@ -1,6 +1,4 @@
 import './App.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import { Routes, Route } from "react-router-dom";

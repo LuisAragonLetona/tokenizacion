@@ -34,7 +34,7 @@ class Tercon extends React.Component {
       };
 
       // Estilos para dispositivos más pequeños (ejemplo: iPads y móviles)
-      const mediaQuery = '@media (max-width: 768px)'; 
+      const mediaQuery = '@media (max-width: 768px)'; // Puedes ajustar el valor para adaptarlo a tus necesidades
 
       const estiloTituloResponsive = {
         fontSize: '30px',

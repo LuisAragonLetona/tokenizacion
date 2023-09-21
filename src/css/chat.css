@@ -1,0 +1,165 @@
+/* Estilos generales */
+
+.mensajeria h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px; /* Cambia el tamaño según tus necesidades */
+    font-weight: bold; /* Hace el texto negrita */
+}
+
+
+.chat-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-card {    
+    display: flex; /* Activa el modelo de caja flexible */
+    flex-direction: column; /* Establece la dirección del flujo como columna */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    flex: 1; /* Utiliza flex para ocupar el mismo espacio disponible */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    margin: 10px; /* Agrega un margen entre las tarjetas */
+    min-width: 600px; /* Establece el ancho mínimo deseado */
+    min-height: 500px; /* Establece la altura mínima deseada */
+    overflow: auto; /* Agrega desplazamiento si el contenido excede las dimensiones mínimas */ 
+  }
+  
+  .chat-card h2 {
+    font-size: 25px; /* Tamaño de fuente para el título */
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  .chat-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .chat-card li {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 0;
+  }
+  
+  .chat-card li:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+
+.chat-app {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+.chat-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center; 
+}
+
+/* Estilos para la lista de usuarios */
+.user-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-list li {
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.user-list li:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+/* Estilos para el formulario de chat */
+.chat-form h2 {
+    font-size: 25px; /* Tamaño de fuente para el título */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+.message {
+    text-align: left;
+}
+
+.chat-form {
+    width: 500px;
+    font-size: 20px;
+}
+
+.chat-form form {
+    display: flex;
+    align-items: center;
+}
+
+.chat-form input[type="text"] {
+    flex: 1;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.chat-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.chat-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para las tarjetas en dispositivos móviles o pantallas pequeñas */
+@media (max-width: 1350px) {
+    .chat-area {
+      flex-direction: column; /* Cambia la dirección del flujo a columna en dispositivos móviles */
+      align-items: center; /* Centra horizontalmente las tarjetas */
+    }
+  
+    .chat-card {
+      
+      width: 90%; /* Establece un ancho máximo del 90% del contenedor */
+      margin: 10px auto; /* Centra las tarjetas horizontalmente */
+    }
+  
+    /* Estilos adicionales para el contenido dentro de las tarjetas en dispositivos móviles */
+    .chat-card h2 {
+      font-size: 20px; /* Tamaño de fuente reducido */
+    }
+  
+    .chat-card ul {
+      font-size: 18px; /* Tamaño de fuente reducido para la lista de usuarios */
+    }
+  
+    .chat-card li {
+      font-size: 16px; /* Tamaño de fuente reducido para los elementos de la lista de usuarios */
+    }
+  }

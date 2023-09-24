@@ -7,6 +7,7 @@ import Mensajes from '../pages/Mensajes';
 import Perfil from '../pages/Perfi';
 import Tercon from '../pages/Tercon';
 import Billetera from '../pages/Billetera';
+import Error404 from '../pages/404';
 
 const Rutas = () => {
   const routes = [
@@ -31,7 +32,7 @@ const Rutas = () => {
         { path: 'soporte', element: <>Soporte</> },
         { path: 'tercon', element: <Tercon/> },
         { path: 'general', element: <General/> },
-        { path: '404', element: <>Error404</> },
+        { path: '404', element: <Error404/> },
         {
           path: '',
           element: <Principal />,

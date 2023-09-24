@@ -32,7 +32,7 @@ class Error404 extends React.Component {
                             <h2>404</h2>
                             <h4>Esto es Embarazoso</h4>
                             <p>Debería mostrarse algo aquí</p>
-                            <a href="#">Regresar a inicio</a>
+                            <a href="/">Regresar a inicio</a>
                         </div>
                     </div>
                 </body>

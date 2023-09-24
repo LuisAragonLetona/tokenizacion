@@ -4,7 +4,7 @@ import Sesion from '../pages/Sesion';
 import Mercado from '../pages/Mercado';
 import General from '../pages/General';
 import Mensajes from '../pages/Mensajes';
-import Perfil from '../pages/Perfil';
+import Perfil from '../pages/Perfi';
 import Tercon from '../pages/Tercon';
 import Billetera from '../pages/Billetera';
 

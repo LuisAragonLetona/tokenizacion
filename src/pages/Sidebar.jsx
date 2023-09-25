@@ -45,14 +45,14 @@ function Sidebar(props) {
             <span className="tooltip">Mensajes</span>
           </li>
           <li>
-            <a href="#">
+            <a href="#/">
               <i className="bx bxl-graphql"></i>
               <span className="links_name">Mis contratos</span>
             </a>
             <span className="tooltip">Mis contratos</span>
           </li>
           <li>
-            <a href="#">
+            <a href="#/">
               <i className="bx bxs-widget"></i>
               <span className="links_name">Rastreo de Titulos</span>
             </a>
@@ -66,7 +66,7 @@ function Sidebar(props) {
             <span className="tooltip">wallet</span>
           </li>
           <li>
-            <a href="#">
+            <a href="/soporte">
               <i className="bx bx-wrench"></i>
               <span className="links_name">Soporte</span>
             </a>

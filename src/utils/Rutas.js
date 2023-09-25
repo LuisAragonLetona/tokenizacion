@@ -8,6 +8,7 @@ import Perfil from '../pages/Perfi';
 import Tercon from '../pages/Tercon';
 import Billetera from '../pages/Billetera';
 import Error404 from '../pages/404';
+import Soporte from '../pages/Soporte';
 
 const Rutas = () => {
   const routes = [
@@ -29,7 +30,7 @@ const Rutas = () => {
         { path: 'contratos', element: <>Contratos</> },
         { path: 'rastreo', element: <>Rastreo de títulos</> },
         { path: 'billetera', element: <Billetera/> },
-        { path: 'soporte', element: <>Soporte</> },
+        { path: 'soporte', element: <Soporte/> },
         { path: 'tercon', element: <Tercon/> },
         { path: 'general', element: <General/> },
         { path: '404', element: <Error404/> },

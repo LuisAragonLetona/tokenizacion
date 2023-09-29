@@ -9,6 +9,7 @@ import Tercon from '../pages/Tercon';
 import Billetera from '../pages/Billetera';
 import Error404 from '../pages/404';
 import Soporte from '../pages/Soporte';
+import Formulario from '../pages/Formulario';
 
 const Rutas = () => {
   const routes = [
@@ -34,6 +35,7 @@ const Rutas = () => {
         { path: 'tercon', element: <Tercon/> },
         { path: 'general', element: <General/> },
         { path: '404', element: <Error404/> },
+        { path: 'formulario', element: <Formulario/> },
         {
           path: '',
           element: <Principal />,

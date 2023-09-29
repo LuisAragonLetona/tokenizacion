@@ -9,6 +9,7 @@ import Tercon from '../pages/Tercon';
 import Billetera from '../pages/Billetera';
 import Error404 from '../pages/404';
 import Soporte from '../pages/Soporte';
+import RegistroTokens from '../pages/RegistroTokens';
 
 const Rutas = () => {
   const routes = [
@@ -28,7 +29,7 @@ const Rutas = () => {
         { path: 'perfil', element: <Perfil/> },
         { path: 'mensajes', element: <Mensajes/> },
         { path: 'contratos', element: <>Contratos</> },
-        { path: 'rastreo', element: <>Rastreo de títulos</> },
+        { path: 'RegToks', element: <RegistroTokens/> },
         { path: 'billetera', element: <Billetera/> },
         { path: 'soporte', element: <Soporte/> },
         { path: 'tercon', element: <Tercon/> },

@@ -1,10 +1,5 @@
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
-  }
+/* 
   body{
     height: 100vh;
     width: 100%;
@@ -23,14 +18,18 @@
     top: 0;
     background: #ba24c2;
     clip-path: polygon(86% 0, 100% 0, 100% 100%, 60% 100%);
-  }
-  .mi-contenedor{
+  } */
+  .mi-contenedor {
     z-index: 12;
     max-width: 1050px;
     width: 100%;
     background: #fff;
     border-radius: 12px;
-    margin: 0 20px;
+    margin: 0 auto; /* Esto centra horizontalmente */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Esto centra verticalmente */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   }
   .mi-contenedor .cont{

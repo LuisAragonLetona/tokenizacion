@@ -25,6 +25,7 @@ export default function Formulario(props) {
         }).then(() => {
             getUsuarios();
             alert("Empleado registrado");
+            limpiarCampos();
         });
     }
 
@@ -37,6 +38,12 @@ export default function Formulario(props) {
         }).then(() => {
             getUsuarios();
             limpiarCampos();
+        });
+    }
+
+    const deleteUsuario = (id) => {
+        axios.delete(`http://localhost:3001/delete/${id}`).then(() => {
+            getUsuarios();
         });
     }
 
@@ -53,7 +60,7 @@ export default function Formulario(props) {
         setId(0);
         setEditar(false);
     }
-     
+
     const editarUsuario = (val) => {
         setEditar(true);
         setNombre(val.nombre);
@@ -106,7 +113,9 @@ export default function Formulario(props) {
                                             }}>
                                                 Editar
                                             </button>
-                                            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4">
+                                            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" onClick={() => {
+                                                deleteUsuario(val.id);
+                                            }}>
                                                 Eliminar
                                             </button>
                                         </div>

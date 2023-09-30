@@ -37,14 +37,23 @@ app.get("/usuarios", (req, res) => {
 
 app.put("/update", (req, res) => {
     const id = req.body.id;
-    const nombre = req.body.nombre;
-    const email = req.body.email;
-    const password = req.body.password;
-    db.query('UPDATE usuarios set nombre=?, email=?, password=? WHERE id=?', [nombre, email, password, id], (err, result) => {
+    db.query('DELETE from usuarios WHERE id=?', [id], (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            res.send("Usuario actualizado con éxito!!");
+            res.send(result);
+        }
+    });
+});
+
+app.delete("/delete/:id", (req, res) => {
+    const id = req.params.id;
+    console.log('id es: '+ id);
+    db.query('DELETE from usuarios WHERE id=?', id, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
         }
     });
 });

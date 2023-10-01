@@ -25,6 +25,18 @@ app.post("/registrar", (req, res) => {
     });
 });
 
+app.post("/login", (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    db.query('SELECT id, nombre, email FROM usuarios WHERE email = ? AND password = ?', [email, password], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 app.get("/usuarios", (req, res) => {
     db.query('SELECT * from usuarios', (err, result) => {
         if (err) {

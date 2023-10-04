@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import bcrypt from 'bcryptjs';
 import Aos from 'aos';
 import '../css/sesion.css';
 import 'aos/dist/aos.css';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Sesion(props) {
     Aos.init({
@@ -13,20 +16,29 @@ export default function Sesion(props) {
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [isActive, setIsActive] = useState(false);
 
     const handleToggle = () => {
         setIsActive(!isActive);
     };
 
+    
     const registrar = () => {
-        axios.post("http://localhost:3001/registrar", {
-            nombre: nombre,
-            email: email,
-            password: password,
-        }).then(() => {
-            alert("Empleado registrado");
-            limpiarCampos();
+        if (password !== confirmPassword) {
+            toast.error("Las contraseñas no coinciden");
+            return;
+        }
+        bcrypt.hash(password, 10, function (err, hash) {
+            // Enviar la contraseña encriptada al servidor
+            axios.post("http://localhost:3001/registrar", {
+                nombre: nombre,
+                email: email,
+                password: hash,
+            }).then(() => {
+                alert("Empleado registrado");
+                limpiarCampos();
+            });
         });
     }
 
@@ -41,11 +53,15 @@ export default function Sesion(props) {
             email: email,
             password: password,
         }).then((response) => {
-            console.log(response.data[0]);
-            limpiarCampos();
+            if (response.data === 'Contraseña incorrecta' || response.data === 'Usuario no encontrado') {
+                alert(response.data);
+            } else {
+                alert('Correctamente');
+                toast("Wow so easy!");
+            }
         });
     }
-    
+
     /*-----*/
 
     return (
@@ -53,6 +69,7 @@ export default function Sesion(props) {
             <div className={`container-form sign-up ${isActive ? 'active' : ''}`}>
                 <div className="message">
                     <h2>Bienvenido a TokenizacionSV</h2>
+                    <ToastContainer></ToastContainer>
                     <p>Si ya tienes una cuenta por favor inicia sesion aqui</p>
                     <button className="sign-up-btn" onClick={handleToggle}>Iniciar Sesion</button>
                 </div>
@@ -73,6 +90,7 @@ export default function Sesion(props) {
                     <input type="text" id="nombre" placeholder="Nombre" onChange={(event) => { setNombre(event.target.value) }} />
                     <input type="email" id="email" placeholder="Email" onChange={(event) => { setEmail(event.target.value) }} />
                     <input type="password" id="pass" placeholder="Contraseña" onChange={(event) => { setPassword(event.target.value) }} />
+                    <input type="password" id="confirmPass" placeholder="Confirmar Contraseña" onChange={(event) => { setConfirmPassword(event.target.value) }} />
                     <button className="registrar" id="registrarse" type="submit" onClick={registrar}>Registrarse</button>
                     <span id="txtCredentials"></span>
                 </div>
@@ -93,7 +111,7 @@ export default function Sesion(props) {
                         </div>
                     </div>
                     <p className="cuenta-gratis">¿Aun no tienes una cuenta?</p>
-                    <input id="email2" type="email" placeholder="Email" onChange={(event) => { setEmail(event.target.value) }}  value={email}/>
+                    <input id="email2" type="email" placeholder="Email" onChange={(event) => { setEmail(event.target.value) }} value={email} />
                     <input id="password" type="password" placeholder="Contraseña" onChange={(event) => { setPassword(event.target.value) }} value={password} />
                     <button className="iniciar_sesion" type="submit" onClick={login}>Iniciar sesion</button>
                     <span id="txtLogin"></span>

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
+const bcrypt = require('bcrypt');
 app.use(cors());
 app.use(express.json());
 
@@ -28,11 +29,25 @@ app.post("/registrar", (req, res) => {
 app.post("/login", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-    db.query('SELECT id, nombre, email FROM usuarios WHERE email = ? AND password = ?', [email, password], (err, result) => {
+    db.query('SELECT id, nombre, email, password FROM usuarios WHERE email = ?', [email], (err, result) => {
         if (err) {
             console.log(err);
         } else {
-            res.send(result);
+            if (result && result.length > 0) {
+                bcrypt.compare(password, result[0].password, function (err, isMatch) {
+                    if (err) {
+                        console.log(err);
+                    } else if (!isMatch) {
+                        res.send('Contraseña incorrecta');
+                    } else {
+                        let user = Object.assign({}, result[0]);
+                        delete user.password;
+                        res.send(user);
+                    }
+                });
+            } else {
+                res.send('Usuario no encontrado');
+            }
         }
     });
 });
@@ -60,7 +75,7 @@ app.put("/update", (req, res) => {
 
 app.delete("/delete/:id", (req, res) => {
     const id = req.params.id;
-    console.log('id es: '+ id);
+    console.log('id es: ' + id);
     db.query('DELETE from usuarios WHERE id=?', id, (err, result) => {
         if (err) {
             console.log(err);

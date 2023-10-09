@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import bcrypt from 'bcryptjs';
 import Aos from 'aos';
 import '../css/sesion.css';
@@ -6,6 +6,8 @@ import 'aos/dist/aos.css';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export default function Sesion(props) {
     Aos.init({
@@ -13,51 +15,69 @@ export default function Sesion(props) {
         offset: 0
     });
 
-    const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
+    /* const [nombre, setNombre] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState(""); */
     const [isActive, setIsActive] = useState(false);
+
+    const emailRef = useRef();
 
     const handleToggle = () => {
         setIsActive(!isActive);
     };
 
-    
-    const registrar = () => {
-        if (password !== confirmPassword) {
-            toast.error("Las contraseñas no coinciden");
-            return;
-        }
-        bcrypt.hash(password, 10, function (err, hash) {
-            // Enviar la contraseña encriptada al servidor
-            axios.post("http://localhost:3001/registrar", {
-                nombre: nombre,
-                email: email,
-                password: hash,
-            }).then(() => {
-                alert("Empleado registrado");
-                limpiarCampos();
-            });
-        });
-    }
+    useEffect(() => {
+        emailRef.current.focus();
+    }, []);
 
-    const limpiarCampos = () => {
-        setNombre("");
-        setEmail("");
-        setPassword("");
-    }
+    const validationSchema = Yup.object().shape({
+        nombre: Yup.string().required('El nombre es requerido'),
+        email: Yup.string().email('Email inválido').required('El email es requerido'),
+        pass: Yup.string().required('Ingresa una contraseña'),
+        confirmPassword: Yup.string()
+            .oneOf([Yup.ref('password'), null], 'Las contraseñas deben coincidir')
+            .required('La confirmación de la contraseña es requerida'),
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            nombre: '',
+            email: '',
+            pass: '',
+            confirmPassword: '',
+        },
+        validationSchema,
+        onSubmit: async (values) => {
+            try {
+                const hash = await bcrypt.hash(values.password, 10);
+                const response = await axios.post("http://localhost:3001/registrar", {
+                    nombre: values.nombre,
+                    email: values.email,
+                    password: hash,
+                });
+                formik.resetForm();
+                toast.success(response.data);
+                setTimeout(() => {
+                    handleToggle();
+                }, 4000);
+            } catch (error) {
+                console.error(error);
+                toast.error("No se pudo conectar a la base de datos");
+            }
+        },
+    });
 
     const login = () => {
         axios.post("http://localhost:3001/login", {
             email: email,
             password: password,
         }).then((response) => {
+            console.log(response.data);
             if (response.data === 'Contraseña incorrecta' || response.data === 'Usuario no encontrado') {
-                alert(response.data);
+                toast.warning(response.data);
             } else {
-                alert('Correctamente');
-                toast("Wow so easy!");
+                toast.success("¡Bienvenido/a!");
             }
         });
     }
@@ -87,11 +107,15 @@ export default function Sesion(props) {
                         </div>
                     </div>
                     <p className="cuenta-gratis">Crear una cuenta gratis</p>
-                    <input type="text" id="nombre" placeholder="Nombre" onChange={(event) => { setNombre(event.target.value) }} />
-                    <input type="email" id="email" placeholder="Email" onChange={(event) => { setEmail(event.target.value) }} />
-                    <input type="password" id="pass" placeholder="Contraseña" onChange={(event) => { setPassword(event.target.value) }} />
-                    <input type="password" id="confirmPass" placeholder="Confirmar Contraseña" onChange={(event) => { setConfirmPassword(event.target.value) }} />
-                    <button className="registrar" id="registrarse" type="submit" onClick={registrar}>Registrarse</button>
+                    {formik.errors.nombre && formik.touched.nombre && <>{formik.errors.nombre}</>}
+                    <input type="text" id="nombre" placeholder="Nombre" onChange={formik.handleChange} value={formik.values.nombre} />
+                    {formik.errors.email && formik.touched.email && <>{formik.errors.email}</>}
+                    <input type="email" id="email" placeholder="Email" onChange={formik.handleChange} value={formik.values.email} />
+                    {formik.errors.pass && formik.touched.pass && <>{formik.errors.pass}</>}
+                    <input type="password" id='password' placeholder="Contraseña" onChange={formik.handleChange} value={formik.values.pass} />
+                    {formik.errors.confirmPassword && formik.touched.confirmPassword && <>{formik.errors.confirmPassword}</>}
+                    <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña" onChange={formik.handleChange} value={formik.values.confirmPassword} />
+                    <button className="registrar" id="registrarse" type="submit" onClick={formik.handleSubmit}>Registrarse</button>
                     <span id="txtCredentials"></span>
                 </div>
             </div>
@@ -99,6 +123,7 @@ export default function Sesion(props) {
             <div className={`container-form sign-in ${isActive ? 'active' : ''}`}>
                 <div className="formulario">
                     <h2 className="create-account">Iniciar Sesion</h2>
+                    <ToastContainer></ToastContainer>
                     <div className="iconos">
                         <div className="border-icon">
                             <i className='bx bxl-instagram'></i>
@@ -110,8 +135,8 @@ export default function Sesion(props) {
                             <i className='bx bxl-facebook-circle'></i>
                         </div>
                     </div>
-                    <p className="cuenta-gratis">¿Aun no tienes una cuenta?</p>
-                    <input id="email2" type="email" placeholder="Email" onChange={(event) => { setEmail(event.target.value) }} value={email} />
+                    <p className="cuenta-gratis">¿Aún no tienes una cuenta?</p>
+                    <input ref={emailRef} id="email2" type="email" placeholder="Email" onChange={(event) => { setEmail(event.target.value) }} value={email} autoFocus />
                     <input id="password" type="password" placeholder="Contraseña" onChange={(event) => { setPassword(event.target.value) }} value={password} />
                     <button className="iniciar_sesion" type="submit" onClick={login}>Iniciar sesion</button>
                     <span id="txtLogin"></span>

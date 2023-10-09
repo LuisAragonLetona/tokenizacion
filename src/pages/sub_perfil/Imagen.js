@@ -20,7 +20,7 @@ const Imagen = () => {
                     <div className="flex-none w-auto max-w-full px-3 my-auto">
                         <div className="h-full">
                             <h5 className="mb-1">Rudy Griffin</h5>
-                            <p className="mb-0 font-semibold leading-normal text-sm">Griffin / Tokenización</p>
+                            <p className="mb-0 font-semibold leading-normal text-sm">Griffin / TokenMall</p>
                         </div>
                     </div>
                     <div className="w-full max-w-full px-3 mx-auto mt-4 sm:my-auto sm:mr-0 md:w-1/2 md:flex-none lg:w-4/12">

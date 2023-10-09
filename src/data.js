@@ -20,7 +20,7 @@ export const navigationData = [
     }
 ];
 export const heroData = {
-    title: `Tokenización`,
+    title: `TokenMall`,
     subtitle:
         'Nuestra plataforma de tokenización es una innovación financiera que convierte activos en tokens digitales, brindando seguridad y transparencia a inversores y propietarios. Cumplimos con altos estándares de regulación y ofrecemos herramientas para la gestión de activos, impulsando nuevas oportunidades de inversión.',
     btnText: 'Iniciar Sesión',

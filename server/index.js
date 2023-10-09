@@ -10,14 +10,15 @@ const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "admin",
-    database: "tokenizacion"
+    database: "tokenmall"
 });
 
 app.post("/registrar", (req, res) => {
     const nombre = req.body.nombre;
     const email = req.body.email;
     const password = req.body.password;
-    db.query('INSERT INTO usuarios(nombre, email, password) VALUES (?,?,?)', [nombre, email, password], (err, result) => {
+    const rol = 3;
+    db.query('INSERT INTO usuarios(nombre, email, password, rol) VALUES (?,?,?,?)', [nombre, email, password, rol], (err, result) => {
         if (err) {
             console.log(err);
         } else {

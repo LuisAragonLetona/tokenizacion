@@ -8,6 +8,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+import jscookie from 'jscookie';
 
 export default function Sesion(props) {
     Aos.init({
@@ -21,7 +23,9 @@ export default function Sesion(props) {
     const [confirmPassword, setConfirmPassword] = useState(""); */
     const [isActive, setIsActive] = useState(false);
 
+
     const emailRef = useRef();
+    const navigate = useNavigate();
 
     const handleToggle = () => {
         setIsActive(!isActive);
@@ -36,7 +40,7 @@ export default function Sesion(props) {
         email: Yup.string().email('Email inválido').required('El email es requerido'),
         pass: Yup.string().required('Ingresa una contraseña'),
         confirmPassword: Yup.string()
-            .oneOf([Yup.ref('password'), null], 'Las contraseñas deben coincidir')
+            .oneOf([Yup.ref('pass'), null], 'Las contraseñas deben coincidir')
             .required('La confirmación de la contraseña es requerida'),
     });
 
@@ -50,7 +54,7 @@ export default function Sesion(props) {
         validationSchema,
         onSubmit: async (values) => {
             try {
-                const hash = await bcrypt.hash(values.password, 10);
+                const hash = await bcrypt.hash(values.pass, 10);
                 const response = await axios.post("http://localhost:3001/registrar", {
                     nombre: values.nombre,
                     email: values.email,
@@ -68,7 +72,8 @@ export default function Sesion(props) {
         },
     });
 
-    const login = () => {
+    const Login = () => {
+
         axios.post("http://localhost:3001/login", {
             email: email,
             password: password,
@@ -77,7 +82,15 @@ export default function Sesion(props) {
             if (response.data === 'Contraseña incorrecta' || response.data === 'Usuario no encontrado') {
                 toast.warning(response.data);
             } else {
-                toast.success("¡Bienvenido/a!");
+                toast.success("¡Bienvenido/a " + response.data.nombre + '!');
+                let usuarioJSON = JSON.stringify(response.data);
+                // Simple Session Cookie
+                jscookie.set({
+                    name: 'usuarioCookie',
+                    value: usuarioJSON
+                });
+
+                navigate("/");
             }
         });
     }
@@ -88,7 +101,7 @@ export default function Sesion(props) {
         <div className="overflow-sesion">
             <div className={`container-form sign-up ${isActive ? 'active' : ''}`}>
                 <div className="message">
-                    <h2>Bienvenido a TokenizacionSV</h2>
+                    <h2>Bienvenido a TokenMall</h2>
                     <ToastContainer></ToastContainer>
                     <p>Si ya tienes una cuenta por favor inicia sesion aqui</p>
                     <button className="sign-up-btn" onClick={handleToggle}>Iniciar Sesion</button>
@@ -112,7 +125,7 @@ export default function Sesion(props) {
                     {formik.errors.email && formik.touched.email && <>{formik.errors.email}</>}
                     <input type="email" id="email" placeholder="Email" onChange={formik.handleChange} value={formik.values.email} />
                     {formik.errors.pass && formik.touched.pass && <>{formik.errors.pass}</>}
-                    <input type="password" id='password' placeholder="Contraseña" onChange={formik.handleChange} value={formik.values.pass} />
+                    <input type="password" id='pass' placeholder="Contraseña" onChange={formik.handleChange} value={formik.values.pass} />
                     {formik.errors.confirmPassword && formik.touched.confirmPassword && <>{formik.errors.confirmPassword}</>}
                     <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña" onChange={formik.handleChange} value={formik.values.confirmPassword} />
                     <button className="registrar" id="registrarse" type="submit" onClick={formik.handleSubmit}>Registrarse</button>
@@ -138,7 +151,7 @@ export default function Sesion(props) {
                     <p className="cuenta-gratis">¿Aún no tienes una cuenta?</p>
                     <input ref={emailRef} id="email2" type="email" placeholder="Email" onChange={(event) => { setEmail(event.target.value) }} value={email} autoFocus />
                     <input id="password" type="password" placeholder="Contraseña" onChange={(event) => { setPassword(event.target.value) }} value={password} />
-                    <button className="iniciar_sesion" type="submit" onClick={login}>Iniciar sesion</button>
+                    <button className="iniciar_sesion" type="submit" onClick={Login}>Iniciar sesion</button>
                     <span id="txtLogin"></span>
                 </div>
                 <div className="welcome-back">

@@ -2,8 +2,10 @@ import React from 'react';
 import '../../css/PW.css';
 import GriffinImage from '../../img/Griffin-1.jpg';
 import Curve from '../../img/curved0.jpg';
+import jscookie from 'jscookie';
 
 const Imagen = () => {
+    let usuarioLeido = JSON.parse(jscookie.get("usuarioCookie"));
     return (
         <div className="w-full px-6 mx-auto">
             <div className="relative flex items-center p-0 mt-6 overflow-hidden bg-center bg-cover min-h-75 rounded-2xl"
@@ -19,8 +21,8 @@ const Imagen = () => {
                     </div>
                     <div className="flex-none w-auto max-w-full px-3 my-auto">
                         <div className="h-full">
-                            <h5 className="mb-1">Rudy Griffin</h5>
-                            <p className="mb-0 font-semibold leading-normal text-sm">Griffin / Tokenización</p>
+                            <h5 className="mb-1">{usuarioLeido.nombre}</h5>
+                            <p className="mb-0 font-semibold leading-normal text-sm">Griffin / TokenMall</p>
                         </div>
                     </div>
                     <div className="w-full max-w-full px-3 mx-auto mt-4 sm:my-auto sm:mr-0 md:w-1/2 md:flex-none lg:w-4/12">

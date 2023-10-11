@@ -53,7 +53,7 @@ class Tercon extends React.Component {
           <h1 style={estiloTitulo}>Términos y Condiciones de la Plataforma</h1>
           <br /> {/* Espacio */}
           <p>
-          Bienvenido(a) a la Plataforma de Tokenización de Activos Digitales (en adelante, "la Plataforma"). Te invitamos a leer detenidamente los siguientes términos y condiciones antes de utilizar nuestros servicios. Al acceder o utilizar la Plataforma, aceptas estar sujeto(a) a estos términos y condiciones. Si no estás de acuerdo con ellos, por favor, no utilices la Plataforma.
+          Bienvenido(a) a la Plataforma de TokenMall de Activos Digitales (en adelante, "la Plataforma"). Te invitamos a leer detenidamente los siguientes términos y condiciones antes de utilizar nuestros servicios. Al acceder o utilizar la Plataforma, aceptas estar sujeto(a) a estos términos y condiciones. Si no estás de acuerdo con ellos, por favor, no utilices la Plataforma.
 
 1. Comportamiento del Usuario
 

@@ -15,6 +15,7 @@ function App() {
   const [web3, setWeb3] = useState(null); //guardar instancia de web3
   const [account, setAccount] = useState(null); // guardar cuenta
   const [balance, setBalance] = useState(null);// guardar el balance
+  const [loginState, setLoginState] = useState('no');
 
   const { ethereum } = window;
 

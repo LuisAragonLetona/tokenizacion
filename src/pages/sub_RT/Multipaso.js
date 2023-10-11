@@ -1,126 +1,79 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import IPFS from 'ipfs'; // Importar la biblioteca de IPFS
 import '../../css/multipaso.css';
 
-function MyComponent() {
-  const [image, setImage] = useState(null);
-  const [tokenInfo, setTokenInfo] = useState({
-    tokenName: '',
-    tokenAmount: '',
-    openingPrice: '',
-  });
+const MyComponent = () => {
+  const [imageUrl, setImageUrl] = useState('');
+  const [ipfsHash, setIpfsHash] = useState('');
+  const [weiPrice, setWeiPrice] = useState('');
+  const [metamaskAddress, setMetamaskAddress] = useState('');
+  const [ipfsNode, setIpfsNode] = useState(null); // Estado para almacenar el nodo IPFS
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      // Verificar la extensión del archivo
-      const validExtensions = ["jpg", "jpeg"];
-      const extension = file.name.split(".").pop().toLowerCase();
+  useEffect(() => {
+    // Inicializar el nodo IPFS cuando el componente se monta
+    const initIpfs = async () => {
+      const node = await IPFS.create();
+      setIpfsNode(node);
+    };
+    initIpfs();
+  }, []); // Este efecto se ejecutará solo una vez al cargar el componente
 
-      if (validExtensions.includes(extension)) {
-        const reader = new FileReader();
-        reader.onload = () => {
-          setImage(reader.result);
-        };
-        reader.readAsDataURL(file);
-      } else {
-        // Mostrar un mensaje de error si la extensión no es válida
-        alert("Por favor, sube un archivo JPG válido.");
+  const handleUploadToIpfs = async () => {
+    if (ipfsNode) {
+      // Convertir la imagen a un objeto de tipo Blob
+      const response = await fetch(imageUrl);
+      const buffer = await response.arrayBuffer();
+      const blob = new Blob([buffer]);
+
+      // Subir el archivo a IPFS
+      try {
+        const result = await ipfsNode.add(blob);
+        console.log('Archivo subido a IPFS. Hash:', result.cid.toString());
+        setIpfsHash(result.cid.toString());
+      } catch (error) {
+        console.error('Error al subir el archivo a IPFS:', error);
       }
+    } else {
+      console.error('Error: IPFS no está inicializado.');
     }
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setTokenInfo({
-      ...tokenInfo,
-      [name]: value,
-    });
+  const handleTokenization = () => {
+    // Lógica para tokenizar la imagen con la URL y el hash IPFS
+    // Puedes agregar tu lógica aquí para enviar la información a tu contrato inteligente, por ejemplo
+    console.log('Tokenizando la imagen...');
+    console.log('Dirección URL de la imagen:', imageUrl);
+    console.log('Hash IPFS de la imagen:', ipfsHash);
+    console.log('Precio en Wei del token:', weiPrice);
+    console.log('Dirección del propietario de la Wallet Metamask:', metamaskAddress);
+    // Aquí puedes realizar la lógica para tokenizar la imagen
   };
 
   return (
-    <div className="container45">
-      <div className="form-container">
-        <div className="card">
-          <div className="card-header">Subir Imagen</div>
-          <div className="card-body">
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-            />
-            {image && (
-              <div className="image-preview-container">
-                <img
-                  src={image}
-                  alt="Imagen subida"
-                  className="preview-image"
-                />
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="card-header">Información del Token</div>
-          <div className="card-body">
-            <form>
-              <div className="form-group">
-                <label>Nombre del Token</label>
-                <input
-                  type="text"
-                  name="tokenName"
-                  value={tokenInfo.tokenName}
-                  onChange={handleInputChange}
-                  className="form-control"
-                />
-              </div>
-              <div className="form-group">
-                <label>Cantidad de Tokens</label>
-                <input
-                  type="text"
-                  name="tokenAmount"
-                  value={tokenInfo.tokenAmount}
-                  onChange={handleInputChange}
-                  className="form-control"
-                />
-              </div>
-              <div className="form-group">
-                <label>Precio de Apertura</label>
-                <input
-                  type="text"
-                  name="openingPrice"
-                  value={tokenInfo.openingPrice}
-                  onChange={handleInputChange}
-                  className="form-control"
-                />
-              </div>
-              {image && (
-                <div className="preview-info">
-                  <img
-                    src={image}
-                    alt="Previsualización"
-                    className="preview-image token-info-image"
-                  />
-                  <div>
-                    <strong>Nombre del Token:</strong> {tokenInfo.tokenName}
-                  </div>
-                  <div>
-                    <strong>Cantidad de Tokens:</strong> {tokenInfo.tokenAmount}
-                  </div>
-                  <div>
-                    <strong>Precio de Apertura:</strong> {tokenInfo.openingPrice}
-                  </div>
-                </div>
-              )}
-              <button type="button" className="tokenize-button">
-                Tokenizar
-              </button>
-            </form>
-          </div>
-        </div>
+    <div>
+      <label>
+        Dirección URL de la imagen a tokenizar:
+        <input type="text" value={imageUrl} onChange={e => setImageUrl(e.target.value)} />
+      </label>
+      <br />
+      <label>
+        Precio en Wei del token:
+        <input type="number" value={weiPrice} onChange={e => setWeiPrice(e.target.value)} />
+      </label>
+      <br />
+      <label>
+        Dirección del propietario de la Wallet Metamask:
+        <input type="text" value={metamaskAddress} readOnly />
+      </label>
+      <br />
+      <button onClick={handleUploadToIpfs}>Subir a IPFS</button>
+      <br />
+      <button onClick={handleTokenization}>Tokenizar</button>
+      <div style={{ marginTop: '20px', width: '300px', height: '300px', border: '1px solid black' }}>
+        {imageUrl && <img src={imageUrl} alt="Imagen tokenizada" style={{ width: '100%', height: '100%' }} />}
       </div>
     </div>
   );
-}
+};
 
 export default MyComponent;

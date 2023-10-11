@@ -1,5 +1,5 @@
-// ChatForm.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+
 
 function ChatForm({ selectedUser, chatHistory, setChatHistory }) {
   const [message, setMessage] = useState('');
@@ -29,11 +29,6 @@ function ChatForm({ selectedUser, chatHistory, setChatHistory }) {
 
   // Extrae el historial de chat del usuario seleccionado
   const selectedUserChatHistory = chatHistory || [];
-
-  useEffect(() => {
-    // Guardar el historial de chats en localStorage cada vez que cambie
-    localStorage.setItem('chatHistories', JSON.stringify(chatHistory));
-  }, [chatHistory]);
 
   return (
     <div className="chat-form">

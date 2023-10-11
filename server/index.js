@@ -30,7 +30,7 @@ app.post("/registrar", (req, res) => {
 app.post("/login", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-    db.query('SELECT id, nombre, email, password FROM usuarios WHERE email = ?', [email], (err, result) => {
+    db.query('SELECT id, nombre, email, password, rol FROM usuarios WHERE email = ?', [email], (err, result) => {
         if (err) {
             console.log(err);
         } else {

@@ -39,7 +39,7 @@ const Rutas = () => {
         { path: 'formulario', element: <Formulario/> },
         {
           path: '',
-          element: <Principal />,
+          element: <Principal test={'ee'} />,
         },
         { path: '*', element: <Navigate to="/404" /> }
       ]

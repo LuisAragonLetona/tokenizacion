@@ -28,7 +28,7 @@ export const heroData = {
 }
 export const aboutData = {
     image: AboutImg,
-    title: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+    title: 'Vive una experiencia digital sin límites.',
     subtitle:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam obcaecati quibusdam saepe fugiat, consectetur dolor quas, exercitationem aliquid quis voluptatem ab tenetur.'
+        '¿Te gustaría vivir una experiencia digital sin límites? Con TokenMall, puedes acceder a un mundo de oportunidades, diversión y aprendizaje con solo un paso. TokenMall es una plataforma que te permite comprar, vender y canjear tokens digitales.TokenMall es más que una tienda online, es una comunidad de usuarios que comparten tus mismos intereses y pasiones. ¿Qué esperas? Regístrate ahora y empieza a explorar el universo TokenMall. ¡Te sorprenderás de todo lo que puedes hacer con tus tokens!'
 };

@@ -52,11 +52,11 @@ function Sidebar(props) {
             <span className="tooltip">Mis contratos</span>
           </li>
           <li>
-            <a href="#/">
+            <a href="/RegToks">
               <i className="bx bxs-widget"></i>
-              <span className="links_name">Rastreo de Titulos</span>
+              <span className="links_name">Registro de Tokens</span>
             </a>
-            <span className="tooltip">Rastreo de Titulos</span>
+            <span className="tooltip">Registro de Tokens</span>
           </li>
           <li>
             <a href="/Billetera">

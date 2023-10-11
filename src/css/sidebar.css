@@ -1,12 +1,12 @@
 /* Google Font Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'); /* Importa los estilos de Boxicons */
-*{
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
-}
+} */
 .sidebar{
   position: fixed;
   left: 0;
@@ -232,9 +232,9 @@
   width: calc(100% - 78px);
   transition: all 0.5s ease;
   z-index: 2;
-  display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
+/*   display: flex;
+  justify-content: center; 
+  align-items: center;  */
 }
 /* .sidebar.open ~ .home-section{
   left: 250px;

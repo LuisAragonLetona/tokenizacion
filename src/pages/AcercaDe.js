@@ -18,7 +18,7 @@ const AcercaDe = () => {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default AcercaDe;

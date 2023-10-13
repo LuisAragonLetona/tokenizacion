@@ -4,7 +4,7 @@ import GriffinImage from '../../img/Griffin-1.jpg';
 import Curve from '../../img/curved0.jpg';
 import jscookie from 'jscookie';
 
-const Imagen = () => {
+const Imagen = (props) => {
     let usuarioLeido = JSON.parse(jscookie.get("usuarioCookie"));
     return (
         <div className="w-full px-6 mx-auto">
@@ -22,7 +22,7 @@ const Imagen = () => {
                     <div className="flex-none w-auto max-w-full px-3 my-auto">
                         <div className="h-full">
                             <h5 className="mb-1">{usuarioLeido.nombre}</h5>
-                            <p className="mb-0 font-semibold leading-normal text-sm">Griffin / TokenMall</p>
+                            <p className="mb-0 font-semibold leading-normal text-sm"> / TokenMall</p>
                         </div>
                     </div>
                     <div className="w-full max-w-full px-3 mx-auto mt-4 sm:my-auto sm:mr-0 md:w-1/2 md:flex-none lg:w-4/12">

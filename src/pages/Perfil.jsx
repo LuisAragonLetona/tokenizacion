@@ -7,7 +7,7 @@ import AjusPerfil from './sub_perfil/AjusPerfil';
 import InfPubli from './sub_perfil/InfPubli';
 import Claveycorreo from './sub_perfil/Claveycorreo';
 
-function Perfil() {
+function Perfil(props) {
   useEffect(() => {
     // Cargar la fuente de Google Fonts
     const link = document.createElement('link');
@@ -18,9 +18,9 @@ function Perfil() {
 
   return (
     <div>
-      <Sidebar contenido={
+      <Sidebar setUser={props.setUser} contenido={
         <div style={{ maxWidth: '100%', margin: '0 auto', padding: '20px' }}>
-          <Imagen />
+          <Imagen user={props.user} />
           {/* Agregar un espacio vertical entre Imagen y AjusPerfil */}
           <div style={{ margin: '20px 0' }}></div>
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -33,7 +33,7 @@ function Perfil() {
             <Claveycorreo style={{ flex: '1', minWidth: '300px' }} />
           </div>
           <div className="leading-normal text-center text-sm text-slate-500 lg:text-left" style={{ marginTop: '20px' }}>
-            © {new Date().getFullYear()}, Tokenizacion
+            © {new Date().getFullYear()}, TokenMall
           </div>
         </div>
       } />

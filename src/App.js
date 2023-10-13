@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import { Routes, Route } from "react-router-dom";
 import { firebaseConfig } from './utils/FirebaseUtil';
+import jscookie from 'jscookie';
 import routes from './utils/Rutas';
-
 
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
@@ -15,8 +15,7 @@ function App() {
   const [web3, setWeb3] = useState(null); //guardar instancia de web3
   const [account, setAccount] = useState(null); // guardar cuenta
   const [balance, setBalance] = useState(null);// guardar el balance
-  const [loginState, setLoginState] = useState('no');
-
+  const [user, setUser] = useState(null);
   const { ethereum } = window;
 
   const conectarWallet = async () => {
@@ -56,7 +55,7 @@ function App() {
     Wallet();
   }, []);
 
-  const routeElements = routes().map(route => <Route key={route.path} path={route.path} element={route.element}>{route.children && route.children.map(child => <Route key={child.path} path={child.path} element={child.element} />)}</Route>);
+  const routeElements = routes(user, setUser).map(route => <Route key={route.path} path={route.path} element={route.element}>{route.children && route.children.map(child => <Route key={child.path} path={child.path} element={child.element} />)}</Route>);
 
   return (
     <Routes>

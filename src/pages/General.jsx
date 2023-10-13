@@ -34,7 +34,7 @@ class General extends Component {
   }
 
   render() {
-    const Texto = () => {
+    const Texto = (usuario) => {
       const currentDate = new Date().toLocaleDateString('es', {
         year: 'numeric',
         month: 'long',
@@ -59,7 +59,7 @@ class General extends Component {
 
       return (
         <div style={centerStyle}>
-          <h1 style={h1Style}>BIENVENIDO</h1>
+          <h1 style={h1Style}>BIENVENIDO {this.props.user.nombre}</h1>
           <p style={pStyle}>{this.state.currentTime}</p>
           <p style={pStyle}>{currentDate}</p>
         </div>
@@ -68,7 +68,7 @@ class General extends Component {
 
     return (
       <div>
-        <Sidebar contenido={<Texto />} />
+        <Sidebar setUser={this.props.setUser} contenido={<Texto />} />
       </div>
     );
   }

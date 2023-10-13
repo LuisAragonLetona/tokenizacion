@@ -73,12 +73,11 @@ export default function Sesion(props) {
     });
 
     const Login = () => {
-
         axios.post("http://localhost:3001/login", {
             email: email,
             password: password,
         }).then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             if (response.data === 'Contraseña incorrecta' || response.data === 'Usuario no encontrado') {
                 toast.warning(response.data);
             } else {
@@ -89,8 +88,8 @@ export default function Sesion(props) {
                     name: 'usuarioCookie',
                     value: usuarioJSON
                 });
-
-                navigate("/");
+                props.setUser(usuarioJSON);
+                navigate("/", { replace: true });
             }
         });
     }

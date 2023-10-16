@@ -11,6 +11,7 @@ import Error404 from '../pages/404';
 import Soporte from '../pages/Soporte';
 import RegistroTokens from '../pages/RegistroTokens';
 import Formulario from '../pages/Formulario';
+import { Personas } from '../pages/Personas';
 
 const Rutas = () => {
   const routes = [
@@ -37,6 +38,7 @@ const Rutas = () => {
         { path: 'general', element: <General/> },
         { path: '404', element: <Error404/> },
         { path: 'formulario', element: <Formulario/> },
+        { path: 'personas', element: <Personas></Personas>},
         {
           path: '',
           element: <Principal test={'ee'} />,

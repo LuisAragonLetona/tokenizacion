@@ -4,7 +4,7 @@ import HeroImage from './img/HeroImage.png';
 export const navigationData = [
     {
         name:'Persona',
-        href: '#'
+        href: '/personas'
     },
     {
         name:'Acerca de nosotros',

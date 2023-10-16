@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+/* import React, { useEffect, useState } from 'react';
 import IPFS from 'ipfs'; // Importar la biblioteca de IPFS
 import '../../css/multipaso.css';
 
@@ -77,3 +77,4 @@ const MyComponent = () => {
 };
 
 export default MyComponent;
+ */

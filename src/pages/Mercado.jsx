@@ -4,7 +4,7 @@ import ModalProducto from './ModalProducto'; // Importa el componente Modal
 import '../css/mercado.css';
 import Sidebar from './Sidebar';
 
-const Mercado = () => {
+const Mercado = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -85,7 +85,7 @@ const Mercado = () => {
 
   return (
     <div>
-        <Sidebar contenido={<Test/>} />
+        <Sidebar setUser={props.setUser} contenido={<Test/>} />
       </div>
   );
 };

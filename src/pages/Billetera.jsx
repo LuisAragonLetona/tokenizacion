@@ -6,8 +6,8 @@ import FoxCard from './sub_billetera/FoxCard';
 import Trasas from './sub_billetera/Trasas'; 
 
 class Billetera extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             isMetaMaskInstalled: false,
             isWalletConnected: false,
@@ -105,7 +105,7 @@ class Billetera extends Component {
 
         return (
             <div>
-                <Sidebar contenido={<Texto />} />
+                <Sidebar setUser={this.props.setUser} contenido={<Texto />} />
                 <div style={{ textAlign: 'center' }}>
                     <input
                         type="text"

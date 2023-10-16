@@ -4,7 +4,7 @@ import Hero from './Hero';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import AcercaDe from './AcercaDe';
-import jscookie from 'jscookie';
+import Caracteristicas from './Caracteristicas';
 
 export default function Principal(props) {
     Aos.init({
@@ -12,13 +12,12 @@ export default function Principal(props) {
         offset: 0
     });
 
-    let usuarioLeido = JSON.parse(jscookie.get("usuarioCookie"));
-
     return (
         <div className="overflow-hidden">
             <Hero />
             <AcercaDe />
-            {usuarioLeido.nombre}
+            <Caracteristicas />
+            {props.test}
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { firebaseConfig } from './utils/FirebaseUtil';
 import jscookie from 'jscookie';
 import routes from './utils/Rutas';
@@ -54,6 +54,17 @@ function App() {
     };
     Wallet();
   }, []);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    let usuarioLeido = JSON.parse(jscookie.get("usuarioCookie"));
+    if (usuarioLeido !== null && usuarioLeido.id > 0) {
+      setUser(usuarioLeido);
+    }
+  }, [setUser]); // Este efecto se ejecuta una vez después de que el componente se monta
+
+  
+  // let usuarioLeido = JSON.parse(jscookie.get("usuarioCookie"));
 
   const routeElements = routes(user, setUser).map(route => <Route key={route.path} path={route.path} element={route.element}>{route.children && route.children.map(child => <Route key={child.path} path={child.path} element={child.element} />)}</Route>);
 

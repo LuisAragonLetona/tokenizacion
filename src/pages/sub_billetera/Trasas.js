@@ -31,7 +31,7 @@ const Trasas = ({ transactions }) => {
                         </div>
                     </div>
                     <div className="leading-normal text-center text-sm text-slate-500 lg:text-left" style={{ marginTop: '20px' }}>
-                        © {new Date().getFullYear()}, Tokenizacion
+                        © {new Date().getFullYear()}, TokenMall
                     </div>
                 </div>
             </div>

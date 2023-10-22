@@ -19,10 +19,7 @@ export default function Sesion(props) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    /* const [nombre, setNombre] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState(""); */
     const [isActive, setIsActive] = useState(false);
-
 
     const emailRef = useRef();
     const navigate = useNavigate();
@@ -77,18 +74,17 @@ export default function Sesion(props) {
             email: email,
             password: password,
         }).then((response) => {
-            // console.log(response.data);
             if (response.data === 'Contraseña incorrecta' || response.data === 'Usuario no encontrado') {
                 toast.warning(response.data);
             } else {
                 toast.success("¡Bienvenido/a " + response.data.nombre + '!');
                 let usuarioJSON = JSON.stringify(response.data);
-                // Simple Session Cookie
+                // Cookie de sesión simple
                 jscookie.set({
                     name: 'usuarioCookie',
                     value: usuarioJSON
                 });
-                props.setUser(usuarioJSON);
+                props.setUser(JSON.parse(usuarioJSON));
                 navigate("/", { replace: true });
             }
         });
@@ -103,7 +99,7 @@ export default function Sesion(props) {
                     <h2>Bienvenido a TokenMall</h2>
                     <ToastContainer></ToastContainer>
                     <p>Si ya tienes una cuenta por favor inicia sesion aqui</p>
-                    <button className="sign-up-btn" onClick={handleToggle}>Iniciar Sesion</button>
+                    <button className="sign-up-btn" onClick={handleToggle}>Iniciar Sesión</button>
                 </div>
                 <div className="formulario">
                     <h2 className="create-account">Crear una cuenta</h2>
@@ -134,7 +130,7 @@ export default function Sesion(props) {
 
             <div className={`container-form sign-in ${isActive ? 'active' : ''}`}>
                 <div className="formulario">
-                    <h2 className="create-account">Iniciar Sesion</h2>
+                    <h2 className="create-account">Iniciar Sesión</h2>
                     <ToastContainer></ToastContainer>
                     <div className="iconos">
                         <div className="border-icon">

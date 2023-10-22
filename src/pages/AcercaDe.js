@@ -1,8 +1,8 @@
 import React from 'react'
-import { aboutData } from '../data'
+import { acercaDeData } from '../data'
 
 const AcercaDe = () => {
-    const { image, title, subtitle } = aboutData;
+    const { image, title, subtitle } = acercaDeData;
 
     return (
         <section className='my-[30px] xl:mt-[100px]' data-aos='fade-up' data-aos-offset='350'>

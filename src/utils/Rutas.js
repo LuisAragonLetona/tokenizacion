@@ -1,4 +1,4 @@
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import Principal from '../pages/Principal';
 import Sesion from '../pages/Sesion';
 import Mercado from '../pages/Mercado';

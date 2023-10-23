@@ -59,7 +59,7 @@ class General extends Component {
         fontSize: '2vw',
       };
 
-      const [ciudadActual, setCiudadActual] = useState("San Salvador");
+    const [ciudadActual, setCiudadActual] = useState("San Salvador");
     const [unidades, setUnidades] = useState("metric");
     const [climaData, setClimaData] = useState(null);
     const [hora, setHora] = useState(new Date());
@@ -97,7 +97,7 @@ class General extends Component {
 
     function convertirMarcaTiempo(marcaTiempo, zonaHoraria) {
       const convertirZonaHoraria = zonaHoraria / 3600; // convierte los segundos en horas
-      const fecha = new Date(marcaTiempo * 10000);
+      const fecha = new Date(marcaTiempo * 1000);// aqui muestra el año
   
       const opciones = {
         weekday: "long",
@@ -116,8 +116,8 @@ class General extends Component {
         <div className="coint-clima">
       <div className="weather__header">
          <form className="weather__search"  onSubmit={(e) => e.preventDefault()} >
-         <i class="fa-solid fa-magnifying-glass"></i>
-          <input
+         <i class="fa-light fa-magnifying-glass"></i>      
+         <input 
             type="text"
             placeholder="busca una ciudad..."
             className="weather__searchform"

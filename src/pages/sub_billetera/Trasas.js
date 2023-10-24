@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import '../../css/PW.css';
 
 const Trasas = ({ transactions }) => {
@@ -39,6 +39,6 @@ const Trasas = ({ transactions }) => {
             <br></br>
         </div>
     )
-}
+} 
 
-export default Trasas;
+export default Trasas;*/

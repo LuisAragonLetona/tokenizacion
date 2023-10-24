@@ -1,9 +1,10 @@
 import React from 'react';
-import Sidebar from './Sidebar';
-import Rt from './sub_RT/Rt';
-import Nb from './sub_RT/Navbar.js';
+import Sidebar from '../Sidebar';
+import Nb from './Navbar.js';
+import Banner from './Banner';
+import Post from './Post';
 
-class RegistroTokens extends React.Component {
+class MisContratos extends React.Component {
   render() {
 
     const Texto = () => {
@@ -11,9 +12,10 @@ class RegistroTokens extends React.Component {
         <>
         <br></br>
           <div style={{ textAlign: 'center' }}>
-            <h1>Registro de Tokens</h1>
+            <h1>Mis Tokens NFTs</h1>
             <Nb/>
-            <Rt/>
+            <Banner/>
+            <Post/>
           </div>
         </>
       )
@@ -27,4 +29,4 @@ class RegistroTokens extends React.Component {
   }
 }
 
-export default RegistroTokens;
+export default MisContratos;

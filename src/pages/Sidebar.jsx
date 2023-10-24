@@ -4,6 +4,7 @@ import perfil from '../img/lacchain.png';
 import jscookie from 'jscookie';
 import { useNavigate } from 'react-router-dom';
 
+
 function Sidebar(props) {
   const contenido = props.contenido;
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -23,7 +24,7 @@ function Sidebar(props) {
     <>
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="logo-details">
-          <div className="logo_name">TokenMall</div>
+          <div className="logo_name">Tokenizacion</div>
           <i className="bx bx-menu" id="btn" onClick={toggleSidebar}></i>
         </div>
         <ul className="nav-list">
@@ -54,7 +55,7 @@ function Sidebar(props) {
             <span className="tooltip">Mensajes</span>
           </li>
           <li>
-            <a href="#/">
+            <a href="/MiCrt">
               <i className="bx bxl-graphql"></i>
               <span className="links_name">Mis contratos</span>
             </a>

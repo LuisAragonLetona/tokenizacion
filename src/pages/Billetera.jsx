@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 import Web3 from 'web3';
 
 import FoxCard from './sub_billetera/FoxCard'; 
-import Trasas from './sub_billetera/Trasas'; 
+/* import Trasas from './sub_billetera/Trasas';  */
 
 class Billetera extends Component {
     constructor(props) {
@@ -19,28 +19,60 @@ class Billetera extends Component {
     }
 
     async componentDidMount() {
-        if (window.ethereum) {
-            this.setState({ isMetaMaskInstalled: true });
+    if (window.ethereum) {
+        try {
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+            if (accounts.length > 0) {
+                const userAddress = accounts[0];
 
-            try {
-                const addresses = await window.ethereum.enable();
-                if (addresses.length > 0) {
-                    this.setState({ isWalletConnected: true, userAddress: addresses[0] });
+                // Obtener el saldo de la cuenta
+                const web3 = new Web3(window.ethereum);
+                const balance = await web3.eth.getBalance(userAddress);
+                const formattedBalance = web3.utils.fromWei(balance, 'ether');
 
-                    // Obtener el saldo de la cuenta
-                    const web3 = new Web3(window.ethereum);
-                    const balance = await web3.eth.getBalance(addresses[0]);
-                    this.setState({ accountBalance: web3.utils.fromWei(balance, 'ether') });
+                // Obtener las transacciones del usuario (esto es un ejemplo simplificado)
+                const transactions = await web3.eth.getTransactionCount(userAddress);
 
-                    // Obtener las transacciones del usuario (esto es un ejemplo simplificado)
-                    const transactions = await web3.eth.getTransactionsByAddress(addresses[0]);
-                    this.setState({ transactions });
-                }
-            } catch (error) {
-                console.error('Error al conectar la billetera:', error);
+                this.setState({
+                    isMetaMaskInstalled: true,
+                    isWalletConnected: true,
+                    userAddress,
+                    accountBalance: formattedBalance,
+                    transactions
+                });
+            } else {
+                console.log('No se encontraron cuentas de MetaMask.');
             }
+        } catch (error) {
+            console.error('Error al conectar la billetera:', error);
         }
+    } else {
+        console.log('MetaMask no está instalado.');
     }
+}
+
+                /* // Obtener las transacciones del usuario (esto es un ejemplo simplificado)
+                const transactions = await Web3.eth.getTransactionCount(userAddress);
+
+                this.setState({
+                    isMetaMaskInstalled: true,
+                    isWalletConnected: true,
+                    userAddress,
+                    accountBalance: formattedBalance,
+                    transactions
+                });
+            } else {
+                console.log('No se encontraron cuentas de MetaMask.');
+            }
+        } catch (error) {
+            console.error('Error al conectar la billetera:', error);
+        }
+    } else {
+        console.log('MetaMask no está instalado.');
+    }
+}
+ */
 
     handleNameChange = (event) => {
         this.setState({ accountName: event.target.value });
@@ -97,7 +129,7 @@ class Billetera extends Component {
                 return (
                     <div style={{ maxWidth: '100%', margin: '0 auto', padding: '20px' }}>
                         <FoxCard userAddress={userAddress} accountName={accountName} accountBalance={accountBalance} />
-                        <Trasas transactions={transactions} />
+                        {/* <Trasas transactions={transactions} /> */}
                     </div>
                 );
             }

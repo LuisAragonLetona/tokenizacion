@@ -13,12 +13,6 @@ class General extends Component {
     
   }
 
-  /* componentDidMount() {
-    // Configuramos un intervalo para actualizar la hora cada segundo
-    this.interval = setInterval(() => {
-      this.setState({ currentTime: this.getCurrentTime() });
-    }, 1000);
-  } */
 
   componentWillUnmount() {
     // Limpiamos el intervalo cuando el componente se desmonta
@@ -97,7 +91,7 @@ class General extends Component {
 
     function convertirMarcaTiempo(marcaTiempo, zonaHoraria) {
       const convertirZonaHoraria = zonaHoraria / 3600; // convierte los segundos en horas
-      const fecha = new Date(marcaTiempo * 10000);
+      const fecha = new Date(marcaTiempo * 1000);
   
       const opciones = {
         weekday: "long",
@@ -117,7 +111,7 @@ class General extends Component {
       <div className="weather__header">
          <form className="weather__search"  onSubmit={(e) => e.preventDefault()} >
          <i class="fa-solid fa-magnifying-glass"></i>
-          <input
+          <input 
             type="text"
             placeholder="busca una ciudad..."
             className="weather__searchform"

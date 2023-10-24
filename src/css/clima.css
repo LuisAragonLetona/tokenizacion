@@ -8,7 +8,7 @@
 }*/
 
 .coint-clima {
-    background: #171717;
+    /* background: #171717; */
     color: #fff;
     padding: 1rem;
     
@@ -20,7 +20,7 @@
     align-items: center;
 }
 
-input {
+.weather__searchform {
     border: none;
     background: #1e1e1e;
     outline: none;
@@ -29,7 +29,7 @@ input {
     border-radius: 5px;
 }
 
-input::placeholder {
+.weather__searchform::placeholder {
     color: #fff;
 }
 

@@ -5,8 +5,11 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import AcercaDe from './AcercaDe';
 import Caracteristicas from './Caracteristicas';
+import Testimonios from './Testimonios';
+import FooterLanding from './FooterLanding';
+import CtaSection from './CtaSection';
 
-export default function Principal(props) {
+export default function Principal() {
     Aos.init({
         duration: 1800,
         offset: 0
@@ -17,7 +20,9 @@ export default function Principal(props) {
             <Hero />
             <AcercaDe />
             <Caracteristicas />
-            {props.test}
+            <Testimonios />
+            <CtaSection />
+            <FooterLanding />
         </div>
     )
 }

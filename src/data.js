@@ -84,3 +84,105 @@ export const caracteristicasData = {
         }
     ]
 };
+
+export const testimonialsData = [
+    {
+        image: Caracteristica4,
+        name: 'Serena',
+        web: 'rena.com',
+        message:
+            'Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat',
+        delay: '300',
+    },
+    {
+        image: Caracteristica4,
+        name: 'Serena',
+        web: 'rena.com',
+        message:
+            'Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat',
+        delay: '300',
+    },
+    {
+        image: Caracteristica4,
+        name: 'Serena',
+        web: 'rena.com',
+        message:
+            'Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat',
+        delay: '300',
+    }
+];
+
+export const ctaData = {
+    title: 'Contáctenos desde aquí',
+    subtitle: 'Obtén 1 semana gratis de prueba de nuestras funciones!',
+    btnText1: 'Aprende más',
+    btnText2: 'Solicitar demostración',
+}
+
+export const footerData = {
+    logo: Caracteristica4,
+    address: 'Calle La Reforma 249, San Salvador',
+    email: 'info@ticongle.conexion',
+    phone: '2249-2300 (Principal)',
+    list1: [
+        {
+            name: 'Perfil',
+            href: '#',
+        },
+        {
+            name: 'Caracteristicas',
+            href: '#',
+        },
+        {
+            name: 'Carreras',
+            href: '#',
+        },
+        {
+            name: 'DW Noticias',
+            href: '#',
+        },
+    ],
+    list2: [
+        {
+            name:
+                'Ayuda',
+            href: '#',
+        },
+        {
+            name: 'Registro',
+            href: '#',
+        },
+        {
+            name: 'Guía',
+            href: '#'
+        },
+        {
+            name:
+                'Reportes',
+            href: '#',
+        },
+        {
+            name: 'Q & A',
+            href: '#'
+        },
+    ],
+    socialList: [
+        {
+            icon: <Caracteristica4 />,
+            href: '#',
+        },
+        {
+            icon: <Caracteristica4 />,
+            href: '#',
+        },
+        {
+            icon: <Caracteristica4 />,
+            href: '#',
+        },
+    ]
+};
+
+export const copyrightData = {
+    text: 'TokenMall, 2023. Todos los derechos reservados. Número de registro de la compañia: 09833888.',
+    icon: <Caracteristica4 />,
+};

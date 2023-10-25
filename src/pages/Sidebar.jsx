@@ -24,7 +24,7 @@ function Sidebar(props) {
     <>
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="logo-details">
-          <div className="logo_name">Tokenizacion</div>
+          <div className="logo_name">TokenMall</div>
           <i className="bx bx-menu" id="btn" onClick={toggleSidebar}></i>
         </div>
         <ul className="nav-list">

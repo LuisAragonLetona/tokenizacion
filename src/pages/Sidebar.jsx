@@ -1,20 +1,30 @@
 import React, { useState } from 'react';
 import '../css/sidebar.css';
 import perfil from '../img/lacchain.png';
+import jscookie from 'jscookie';
+import { useNavigate } from 'react-router-dom';
+
 
 function Sidebar(props) {
   const contenido = props.contenido;
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
+  const Logout = () => {
+    props.setUser(null);
+    jscookie.del('usuarioCookie');
+    navigate("/", { replace: true });
+  }
+
   return (
     <>
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="logo-details">
-          <div className="logo_name">Tokenizacion</div>
+          <div className="logo_name">TokenMall</div>
           <i className="bx bx-menu" id="btn" onClick={toggleSidebar}></i>
         </div>
         <ul className="nav-list">
@@ -31,7 +41,7 @@ function Sidebar(props) {
             <span className="tooltip">Mercado</span>
           </li>
           <li>
-          <a href="/perfil">
+            <a href="/perfil">
               <i className="bx bx-user"></i>
               <span className="links_name">Mi Perfil</span>
             </a>
@@ -45,7 +55,7 @@ function Sidebar(props) {
             <span className="tooltip">Mensajes</span>
           </li>
           <li>
-            <a href="#/">
+            <a href="/MiCrt">
               <i className="bx bxl-graphql"></i>
               <span className="links_name">Mis contratos</span>
             </a>
@@ -73,7 +83,7 @@ function Sidebar(props) {
             <span className="tooltip">Soporte</span>
           </li>
           <li>
-          <a href="/tercon">
+            <a href="/tercon">
               <i className="bx bx-clipboard"></i>
               <span className="links_name">Ter&Con</span>
             </a>
@@ -87,7 +97,7 @@ function Sidebar(props) {
                 <div className="job">M.C.A.L.R.G</div>
               </div>
             </div>
-            <i className="bx bx-log-out" id="log_out"></i>
+            <i className="bx bx-log-out" onClick={Logout} id="log_out"></i>
           </li>
         </ul>
 

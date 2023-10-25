@@ -4,6 +4,10 @@ import '../css/soporte.css';
 import contactoImage from '../img/contacto.png'; // Importa la imagen correctamente
 
 class Soporte extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     const Texto = () => {
       return (
@@ -37,7 +41,7 @@ class Soporte extends React.Component {
 
     return (
       <div>
-        <Sidebar contenido={<Texto />} />
+        <Sidebar setUser={this.props.setUser} contenido={<Texto />} />
       </div>
     );
   }

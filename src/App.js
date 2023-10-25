@@ -1,9 +1,12 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { firebaseConfig } from './utils/FirebaseUtil';
+import jscookie from 'jscookie';
 import routes from './utils/Rutas';
+import { Provider } from 'react-redux';
+import store from './Store';
 
 
 // Put any other imports below so that CSS from your
@@ -12,38 +15,12 @@ import routes from './utils/Rutas';
 function App() {
   firebaseConfig();
   const [metamask, setMetamask] = useState(false);
-  const [web3, setWeb3] = useState(null); //guardar instancia de web3
+  const [web3, setWeb3] = useState(null); // guardar instancia de web3
   const [account, setAccount] = useState(null); // guardar cuenta
   const [balance, setBalance] = useState(null);// guardar el balance
-  const [loginState, setLoginState] = useState('no');
-
+  const [user, setUser] = useState(null);
   const { ethereum } = window;
-
-  const conectarWallet = async () => {
-    console.log("conectar Wallet");
-    if (typeof window.ethereum !== 'undefined') {
-      const web3Instance = new Web3(window.ethereum);
-      setWeb3(web3Instance);
-      try {
-        // await window.ethereum.enable();
-        await ethereum.request({ method: 'eth_requestAccounts' });
-        const accounts = await web3Instance.eth.getAccounts();
-        console.log(accounts[0]);
-        setAccount(accounts[0]);
-        const balanceWei = await web3Instance.eth.getBalance(accounts[0]);
-        // console.log(balanceWei);
-        const balanceEth = web3Instance.utils.fromWei(balanceWei, 'ether');
-        // const balanceEth = 0.7;
-        console.log(balanceEth);
-        setBalance(balanceEth);
-        setMetamask(false);
-      } catch (error) {
-        console.log(error);
-      };
-    } else {
-      setMetamask(false);
-    }
-  };
+  const ruta = useLocation().pathname;
 
   useEffect(() => {
     async function Wallet() {
@@ -56,12 +33,26 @@ function App() {
     Wallet();
   }, []);
 
-  const routeElements = routes().map(route => <Route key={route.path} path={route.path} element={route.element}>{route.children && route.children.map(child => <Route key={child.path} path={child.path} element={child.element} />)}</Route>);
+  const navigate = useNavigate();
+  useEffect(() => {
+    let usuarioLeido = JSON.parse(jscookie.get("usuarioCookie"));
+    if (usuarioLeido !== null && usuarioLeido.id > 0) {
+      setUser(usuarioLeido);
+    }
+  }, [setUser]);
+
+  if (ruta !== '/' && ruta !== '/sesion' && user === null) {
+    navigate("/", { replace: true });
+  }
+
+  const routeElements = routes(user, setUser, ruta).map(route => <Route key={route.path} path={route.path} element={route.element}>{route.children && route.children.map(child => <Route key={child.path} path={child.path} element={child.element} />)}</Route>);
 
   return (
-    <Routes>
-      {routeElements}
-    </Routes>
+    <Provider store={store}>
+      <Routes>
+        {routeElements}
+      </Routes>
+    </Provider>
   );
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import Multipaso from './sub_RT/Multipaso';
+import Rt from './sub_RT/Rt';
+import Nb from './sub_RT/Navbar.js';
 
 class RegistroTokens extends React.Component {
   render() {
@@ -11,7 +12,8 @@ class RegistroTokens extends React.Component {
         <br></br>
           <div style={{ textAlign: 'center' }}>
             <h1>Registro de Tokens</h1>
-            <Multipaso/>
+            <Nb/>
+            <Rt/>
           </div>
         </>
       )

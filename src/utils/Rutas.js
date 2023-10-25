@@ -10,10 +10,11 @@ import Billetera from '../pages/Billetera';
 import Error404 from '../pages/404';
 import Soporte from '../pages/Soporte';
 import RegistroTokens from '../pages/RegistroTokens';
+import MiCrt from '../pages/sub_RT/MiCrt';
 import Formulario from '../pages/Formulario';
 import { Personas } from '../pages/Personas';
 
-const Rutas = () => {
+const Rutas = (user, setUser) => {
   const routes = [
     {
       path: 'app',
@@ -26,22 +27,21 @@ const Rutas = () => {
     {
       path: '/',
       children: [
-        { path: 'sesion', element: <Sesion/> },
-        { path: 'mercado', element: <Mercado/> },
-        { path: 'perfil', element: <Perfil/> },
-        { path: 'mensajes', element: <Mensajes/> },
-        { path: 'contratos', element: <>Contratos</> },
-        { path: 'RegToks', element: <RegistroTokens/> },
-        { path: 'billetera', element: <Billetera/> },
-        { path: 'soporte', element: <Soporte/> },
-        { path: 'tercon', element: <Tercon/> },
-        { path: 'general', element: <General/> },
-        { path: '404', element: <Error404/> },
-        { path: 'formulario', element: <Formulario/> },
-        { path: 'personas', element: <Personas></Personas>},
+        { path: 'sesion', element: <Sesion setUser={setUser} /> },
+        { path: 'mercado', element: <Mercado setUser={setUser} /> },
+        { path: 'perfil', element: <Perfil user={user} setUser={setUser} /> },
+        { path: 'mensajes', element: <Mensajes setUser={setUser} /> },
+        { path: 'MiCrt', element: <MiCrt setUser={setUser} /> },
+        { path: 'RegToks', element: <RegistroTokens /> },
+        { path: 'billetera', element: <Billetera user={user} setUser={setUser} /> },
+        { path: 'soporte', element: <Soporte setUser={setUser} /> },
+        { path: 'tercon', element: <Tercon setUser={setUser} /> },
+        { path: 'general', element: <General user={user} setUser={setUser} /> },
+        { path: '404', element: <Error404 /> },
+        { path: 'formulario', element: <Formulario /> },
         {
           path: '',
-          element: <Principal test={'ee'} />,
+          element: user !== null ? <General user={user} setUser={setUser} /> : <Principal />,
         },
         { path: '*', element: <Navigate to="/404" /> }
       ]

@@ -3,6 +3,10 @@ import Sidebar from './Sidebar';
 import perfil from '../img/lacchain.png';
 
 class Tercon extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     const fechaEdicion = "13 de septiembre de 2023, 1:30 P.m"; // Hora fija de edición de los términos
 
@@ -53,41 +57,41 @@ class Tercon extends React.Component {
           <h1 style={estiloTitulo}>Términos y Condiciones de la Plataforma</h1>
           <br /> {/* Espacio */}
           <p>
-          Bienvenido(a) a la Plataforma de TokenMall de Activos Digitales (en adelante, "la Plataforma"). Te invitamos a leer detenidamente los siguientes términos y condiciones antes de utilizar nuestros servicios. Al acceder o utilizar la Plataforma, aceptas estar sujeto(a) a estos términos y condiciones. Si no estás de acuerdo con ellos, por favor, no utilices la Plataforma.
+            Bienvenido(a) a la Plataforma de TokenMall de Activos Digitales (en adelante, "la Plataforma"). Te invitamos a leer detenidamente los siguientes términos y condiciones antes de utilizar nuestros servicios. Al acceder o utilizar la Plataforma, aceptas estar sujeto(a) a estos términos y condiciones. Si no estás de acuerdo con ellos, por favor, no utilices la Plataforma.
 
-1. Comportamiento del Usuario
+            1. Comportamiento del Usuario
 
-1.1. Esperamos un buen comportamiento de todos los usuarios dentro de la comunidad de la Plataforma. Esto incluye, pero no se limita a, el respeto mutuo, la cortesía y la ética en todas las interacciones.
+            1.1. Esperamos un buen comportamiento de todos los usuarios dentro de la comunidad de la Plataforma. Esto incluye, pero no se limita a, el respeto mutuo, la cortesía y la ética en todas las interacciones.
 
-1.2. Nos reservamos el derecho de tomar medidas adecuadas en caso de que un usuario viole estas normas de comportamiento. Estas medidas pueden incluir advertencias, restricciones temporales o permanentes, y la eliminación de la cuenta del usuario.
+            1.2. Nos reservamos el derecho de tomar medidas adecuadas en caso de que un usuario viole estas normas de comportamiento. Estas medidas pueden incluir advertencias, restricciones temporales o permanentes, y la eliminación de la cuenta del usuario.
 
-2. Cambios en los Términos y Condiciones
+            2. Cambios en los Términos y Condiciones
 
-2.1. Los términos y condiciones de la Plataforma están sujetos a cambios sin previo aviso. Se notificarán cambios importantes a los usuarios a través de notificaciones en la Plataforma o por correo electrónico registrado en la cuenta del usuario.
+            2.1. Los términos y condiciones de la Plataforma están sujetos a cambios sin previo aviso. Se notificarán cambios importantes a los usuarios a través de notificaciones en la Plataforma o por correo electrónico registrado en la cuenta del usuario.
 
-2.2. Es responsabilidad del usuario revisar periódicamente estos términos y condiciones para estar al tanto de las actualizaciones.
+            2.2. Es responsabilidad del usuario revisar periódicamente estos términos y condiciones para estar al tanto de las actualizaciones.
 
-3. Uso de la Plataforma
+            3. Uso de la Plataforma
 
-3.1. La Plataforma se proporciona con fines informativos y de entretenimiento. No garantizamos la precisión o integridad de la información proporcionada.
+            3.1. La Plataforma se proporciona con fines informativos y de entretenimiento. No garantizamos la precisión o integridad de la información proporcionada.
 
-3.2. Los usuarios deben ser conscientes de los riesgos asociados con la inversión en activos digitales y tomar sus decisiones con responsabilidad.
+            3.2. Los usuarios deben ser conscientes de los riesgos asociados con la inversión en activos digitales y tomar sus decisiones con responsabilidad.
 
-4. Política de Privacidad
+            4. Política de Privacidad
 
-4.1. La Política de Privacidad de la Plataforma se encuentra disponible en [enlace a la Política de Privacidad] y rige la recopilación y el uso de datos personales de los usuarios.
+            4.1. La Política de Privacidad de la Plataforma se encuentra disponible en [enlace a la Política de Privacidad] y rige la recopilación y el uso de datos personales de los usuarios.
 
-5. Propiedad Intelectual
+            5. Propiedad Intelectual
 
-5.1. Todos los contenidos de la Plataforma, incluyendo textos, imágenes, videos y otros materiales, están protegidos por derechos de autor y otras leyes de propiedad intelectual.
+            5.1. Todos los contenidos de la Plataforma, incluyendo textos, imágenes, videos y otros materiales, están protegidos por derechos de autor y otras leyes de propiedad intelectual.
 
-5.2. Los usuarios no tienen permiso para copiar, distribuir o modificar cualquier contenido de la Plataforma sin autorización previa.
+            5.2. Los usuarios no tienen permiso para copiar, distribuir o modificar cualquier contenido de la Plataforma sin autorización previa.
           </p>
           <hr style={estiloLinea} /> {/* Línea decorativa */}
           <br /> {/* Espacio */}
           <p style={estiloFecha}>Fecha de edición: {fechaEdicion}</p>
           <br /> {/* Espacio */}
-          
+
           {/* Estilos para dispositivos más pequeños */}
           <style>
             {`${mediaQuery} {
@@ -107,7 +111,7 @@ class Tercon extends React.Component {
 
     return (
       <div>
-        <Sidebar contenido={<Texto />} />
+        <Sidebar setUser={this.props.setUser} contenido={<Texto />} />
       </div>
     );
   }

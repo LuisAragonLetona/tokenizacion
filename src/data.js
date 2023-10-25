@@ -1,21 +1,30 @@
 import AboutImg from './img/about.png';
 import HeroImage from './img/HeroImage.png';
+import Caracteristica1 from './img/caracteristica1.png';
+import Caracteristica2 from './img/caracteristica2.png';
+import Caracteristica3 from './img/caracteristica3.png';
+import Caracteristica4 from './img/caracteristica4.png';
+import Caracteristica1bg from './img/caracteristica1bg.png';
+import Caracteristica2bg from './img/caracteristica2bg.png';
+import Caracteristica3bg from './img/caracteristica3bg.png';
+import Caracteristica4bg from './img/caracteristica4bg.png';
+
 
 export const navigationData = [
     {
-        name:'Persona',
-        href: '/personas'
-    },
-    {
-        name:'Acerca de nosotros',
+        name: 'Persona',
         href: '#'
     },
     {
-        name:'Características',
+        name: 'Acerca de nosotros',
         href: '#'
     },
     {
-        name:'Contáctanos',
+        name: 'Características',
+        href: '#'
+    },
+    {
+        name: 'Contáctanos',
         href: '#'
     }
 ];
@@ -26,9 +35,154 @@ export const heroData = {
     btnText: 'Iniciar Sesión',
     image: HeroImage,
 }
-export const aboutData = {
+export const acercaDeData = {
     image: AboutImg,
     title: 'Vive una experiencia digital sin límites.',
     subtitle:
         '¿Te gustaría vivir una experiencia digital sin límites? Con TokenMall, puedes acceder a un mundo de oportunidades, diversión y aprendizaje con solo un paso. TokenMall es una plataforma que te permite comprar, vender y canjear tokens digitales.TokenMall es más que una tienda online, es una comunidad de usuarios que comparten tus mismos intereses y pasiones. ¿Qué esperas? Regístrate ahora y empieza a explorar el universo TokenMall. ¡Te sorprenderás de todo lo que puedes hacer con tus tokens!'
+};
+export const caracteristicasData = {
+    title: 'Algunos servicios que ofrecemos',
+    subtitle:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga a error delectus, animi officiis asperiores suscipit explicabo veritatis natus ut aperiam labore saepe sit corrupti. Inventore facere earum quo id accusamus reprehenderit temporibus saepe ut asperiores enim atque fugiat praesentium suscipit obcaecati pariatur expedita odit neque, ipsa sapiente, velit facilis? Rem culpa autem cupiditate, facere praesentium voluptatem tenetur ullam at.',
+    list: [
+        {
+            image: Caracteristica1,
+            bgImage: Caracteristica1bg,
+            title: 'Payment Done1',
+            description:
+                'Pay with a Visa or PayPal card and without much ado',
+            linkText: 'Learn more',
+            delay: '400',
+        },
+        {
+            image: Caracteristica2,
+            bgImage: Caracteristica2bg,
+            title: 'Payment Done2',
+            description:
+                'Pay with a Visa or PayPal card and without much ado',
+            linkText: 'Learn more',
+            delay: '400',
+        },
+        {
+            image: Caracteristica3,
+            bgImage: Caracteristica3bg,
+            title: 'Payment Done3',
+            description:
+                'Pay with a Visa or PayPal card and without much ado',
+            linkText: 'Learn more',
+            delay: '400',
+        },
+        {
+            image: Caracteristica4,
+            bgImage: Caracteristica4bg,
+            title: 'Payment Done4',
+            description:
+                'Pay with a Visa or PayPal card and without much ado',
+            linkText: 'Learn more',
+            delay: '400',
+        }
+    ]
+};
+
+export const testimonialsData = [
+    {
+        image: Caracteristica4,
+        name: 'Serena',
+        web: 'rena.com',
+        message:
+            'Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat',
+        delay: '300',
+    },
+    {
+        image: Caracteristica4,
+        name: 'Serena',
+        web: 'rena.com',
+        message:
+            'Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat',
+        delay: '300',
+    },
+    {
+        image: Caracteristica4,
+        name: 'Serena',
+        web: 'rena.com',
+        message:
+            'Suspendisse ultrices at diam lectus nullam. Nisl, sagittis viverra enim erat',
+        delay: '300',
+    }
+];
+
+export const ctaData = {
+    title: 'Contáctenos desde aquí',
+    subtitle: 'Obtén 1 semana gratis de prueba de nuestras funciones!',
+    btnText1: 'Aprende más',
+    btnText2: 'Solicitar demostración',
+}
+
+export const footerData = {
+    logo: Caracteristica4,
+    address: 'Calle La Reforma 249, San Salvador',
+    email: 'info@ticongle.conexion',
+    phone: '2249-2300 (Principal)',
+    list1: [
+        {
+            name: 'Perfil',
+            href: '#',
+        },
+        {
+            name: 'Caracteristicas',
+            href: '#',
+        },
+        {
+            name: 'Carreras',
+            href: '#',
+        },
+        {
+            name: 'DW Noticias',
+            href: '#',
+        },
+    ],
+    list2: [
+        {
+            name:
+                'Ayuda',
+            href: '#',
+        },
+        {
+            name: 'Registro',
+            href: '#',
+        },
+        {
+            name: 'Guía',
+            href: '#'
+        },
+        {
+            name:
+                'Reportes',
+            href: '#',
+        },
+        {
+            name: 'Q & A',
+            href: '#'
+        },
+    ],
+    socialList: [
+        {
+            icon: <Caracteristica4 />,
+            href: '#',
+        },
+        {
+            icon: <Caracteristica4 />,
+            href: '#',
+        },
+        {
+            icon: <Caracteristica4 />,
+            href: '#',
+        },
+    ]
+};
+
+export const copyrightData = {
+    text: 'TokenMall, 2023. Todos los derechos reservados. Número de registro de la compañia: 09833888.',
+    icon: <Caracteristica4 />,
 };

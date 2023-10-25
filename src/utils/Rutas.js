@@ -12,23 +12,8 @@ import Soporte from '../pages/Soporte';
 import RegistroTokens from '../pages/RegistroTokens';
 import MiCrt from '../pages/sub_RT/MiCrt';
 import Formulario from '../pages/Formulario';
-import jscookie from 'jscookie';
-import { useEffect } from 'react';
 
 const Rutas = (user, setUser) => {
-  useEffect(() => {
-    let usuarioLeido = JSON.parse(jscookie.get("usuarioCookie"));
-    if (usuarioLeido !== null) {
-      setUser(usuarioLeido);
-    }
-  }, [setUser]); // Este efecto se ejecuta una vez después de que el componente se monta
-  
-  useEffect(() => {
-    if (user !== null) {
-      // console.log(user); // Este efecto se ejecuta cada vez que 'user' cambia
-    }
-  }, [user]);
-  // let usuarioLeido = JSON.parse(jscookie.get("usuarioCookie"));
   const routes = [
     {
       path: 'app',
@@ -55,7 +40,7 @@ const Rutas = (user, setUser) => {
         { path: 'formulario', element: <Formulario /> },
         {
           path: '',
-          element: user !== null ? <General user={user} setUser={setUser} /> : <Principal test={user} user={user} />,
+          element: user !== null ? <General user={user} setUser={setUser} /> : <Principal />,
         },
         { path: '*', element: <Navigate to="/404" /> }
       ]

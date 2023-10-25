@@ -110,7 +110,7 @@ class General extends Component {
         <div className="coint-clima">
       <div className="weather__header">
          <form className="weather__search"  onSubmit={(e) => e.preventDefault()} >
-         <i class="fa-solid fa-magnifying-glass"></i>
+         <i className="fa-solid fa-magnifying-glass"></i>
           <input 
             type="text"
             placeholder="busca una ciudad..."
@@ -153,7 +153,7 @@ class General extends Component {
       </div>
       <div className="weather__info">
         <div className="weather__card">
-        <i class="fa-solid fa-temperature-full"></i>
+        <i className="fa-solid fa-temperature-full"></i>
           <div>
             <p>sensacion real</p>
             <p className="weather__realfeel">{climaData ? `${climaData.main.feels_like.toFixed()}°` : ''}</p>
@@ -181,7 +181,7 @@ class General extends Component {
           </div>
         </div>
       </div>
-      <script src="https://kit.fontawesome.com/a692e1c39f.js" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/a692e1c39f.js" crossOrigin="anonymous"></script>
     </div>
         /* <div style={centerStyle}>
           <h1 style={h1Style}>BIENVENIDO {this.props.user.nombre}</h1>

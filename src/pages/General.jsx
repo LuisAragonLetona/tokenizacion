@@ -79,7 +79,6 @@ class General extends Component {
     useEffect(() => {
       obtenerClima();
     
-      // Actualizar la hora cada segundo
        const intervalId = setInterval(() => {
         setHora(new Date());
       }, 1000); 
@@ -183,11 +182,6 @@ class General extends Component {
       </div>
       <script src="https://kit.fontawesome.com/a692e1c39f.js" crossOrigin="anonymous"></script>
     </div>
-        /* <div style={centerStyle}>
-          <h1 style={h1Style}>BIENVENIDO {this.props.user.nombre}</h1>
-          <p style={pStyle}>{this.state.currentTime}</p>
-          <p style={pStyle}>{currentDate}</p>
-        </div> */
       )
     };
 

@@ -1,0 +1,164 @@
+.modalredes {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainmodal {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(240, 240, 240);
+}
+.icon-modal {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background: #fff;
+    margin: 20px;
+    text-align: center;
+    font-size: 50px;
+    line-height: 100px;
+    font-family: sans-serif;
+    overflow: hidden;
+    box-shadow: 5px 10px 20px rgba(150, 150, 150, 0.3);
+    transition: all 0.3s ease-out;
+}
+.icon-modal:hover {
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #fff;
+}
+.icon-modal:hover i {
+    color: #fff;
+}
+.icon-modal .fa-facebook-f {
+    color: #1A6ED8;
+}
+.fb:hover {
+    background: #1A6ED8;
+}
+.icon-modal .fa-twitter {
+    color: #1DA1F2;
+}
+.twt:hover {
+    background: #1DA1F2;
+}
+.icon-modal .fa-instagram {
+    
+    color: #d41356;
+}
+.ins:hover {
+    background: linear-gradient(30deg, #3040e6 10%, #d41356, #e74f31, #f0ce6d);
+    
+}
+
+.icon-modal .fa-github {
+    color: #000;
+}
+.git:hover {
+    background: #000;
+}
+.icon-modal .fa-youtube {
+    color: #FE0000;
+}
+.yt:hover {
+    background: #FE0000;
+}
+
+/* responsive */
+@media only screen and (min-width: 320px) and (max-width: 991px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .mainmodal {
+        width: 100%;
+        height: 60%;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        background: rgb(240, 240, 240);
+    }
+
+    .icon-modal {
+        width: 100px;
+        margin: auto;
+        margin-bottom: 15px;
+    }
+
+    .icon-modal:hover {
+        width: 98%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+    }
+}
+
+/* Estilos para el modal */
+.modal-social {
+    display: inline-table;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    
+    border-radius: 10px;
+    position: relative;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.containerlogin{
+    text-align: center;
+}
+
+.containerlogin .cancelbtn{
+    background-color: #FE0000;
+    width: 130px;
+    height: 30px;
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    box-shadow: #000 1px 1px;
+}
+
+.containerlogin .cancelbtn:hover{
+    transform: scale(1.2);
+    box-shadow: #000 2px 2px 2px 2px;
+}

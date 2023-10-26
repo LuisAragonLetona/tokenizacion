@@ -95,7 +95,7 @@ export default function Sesion(props) {
     return (
         <div className="overflow-sesion">
             <div className={`container-form sign-up ${isActive ? 'active' : ''}`}>
-                <div className="message">
+                <div className="message-sesion">
                     <h2>Bienvenido a TokenMall</h2>
                     <ToastContainer></ToastContainer>
                     <p>Si ya tienes una cuenta por favor inicia sesion aqui</p>

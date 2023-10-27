@@ -24,7 +24,7 @@ function Sidebar(props) {
     <>
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="logo-details">
-          <div className="logo_name">Tokenizacion</div>
+          <div className="logo_name">TOKENMALL</div>
           <i className="bx bx-menu" id="btn" onClick={toggleSidebar}></i>
         </div>
         <ul className="nav-list">
@@ -34,7 +34,7 @@ function Sidebar(props) {
             <span className="tooltip">Buscar</span>
           </li>
           <li>
-            <a href="/mercado">
+            <a href="/TokenMallMercado">
               <i className="bx bx-store"></i>
               <span className="links_name">Mercado</span>
             </a>
@@ -93,7 +93,7 @@ function Sidebar(props) {
             <div className="profile-details">
               <img src={perfil} alt="profileImg" />
               <div className="name_job">
-                <div className="name">Nameles</div>
+                <div className="name">Tokenmall</div>
                 <div className="job">M.C.A.L.R.G</div>
               </div>
             </div>

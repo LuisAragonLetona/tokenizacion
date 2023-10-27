@@ -89,7 +89,7 @@ function Navbar({
                                 <div className="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden">
                                     {/* Mobile menu button */}
                                     <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                                        <span className="sr-only">Open menu</span>
+                                        <span className="sr-only">Abrir Menu</span>
                                         {open ? (
                                             <XIcon className="block h-6 w-6" aria-hidden="true" />
                                         ) : (
@@ -107,7 +107,7 @@ function Navbar({
                                     <Menu as="div" className="flex-shrink-0 relative ml-5">
                                         <div>
                                             <Menu.Button className="bg-white rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                <span className="sr-only">Open user menu</span>
+                                                <span className="sr-only">Abrir Menu Usuario</span>
                                                 <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
                                                     <svg className="h-full w-full text-gray-800" fill="currentColor" viewBox="0 0 24 24">
                                                         <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -182,7 +182,7 @@ function Navbar({
                                         type="button"
                                         className="ml-auto flex-shrink-0 bg-white rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                     >
-                                        <span className="sr-only">View notifications</span>
+                                        <span className="sr-only">Notificaciones</span>
                                         <BellIcon className="h-6 w-6" aria-hidden="true" />
                                     </button>
                                 </div>

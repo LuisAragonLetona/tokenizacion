@@ -1,27 +1,28 @@
-// SPDX-License-Identifier: MIT 
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.10;
 
 import './ERC721Connector.sol';
 
 contract TokenMall is ERC721Connector {
 
-    //Matriz para guardar nuestros NFTs
-    string[] public TokenMallNFT;
+    // matriz para guardar nuestros nfts
+    string[] public TokenMallNFTS;
 
-    mapping(string => bool) _TokenMallNFTExists;
+    mapping(string => bool) _tokenmallNFTExists;
 
     function mint(string memory _tokenmall) public {
 
-        require(!_TokenMallNFTExists[_tokenmall], 'Error - este Token ya existe');
+        require(!_tokenmallNFTExists[_tokenmall], 'Error - token already exists');
 
-        TokenMallNFT.push(_tokenmall);
-        uint _id = TokenMallNFT.length -1;
+        TokenMallNFTS.push(_tokenmall);
+        uint _id = TokenMallNFTS.length -1;
 
         _mint(msg.sender, _id);
 
-        _TokenMallNFTExists[_tokenmall] = true;
+        _tokenmallNFTExists[_tokenmall] = true;
     }
 
-    constructor() ERC721Connector('TokenMall','SepoliaETH') {}
+    constructor() ERC721Connector('TokenMall','ETH') {}
 
 }

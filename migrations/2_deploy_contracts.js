@@ -1,5 +1,5 @@
-const TokenMall = artifacts.require("TokenMall");
+const Murkiva = artifacts.require("Murkiva");
 
 module.exports = function (deployer) {
-    deployer.deploy(TokenMall);
-};
+    deployer.deploy(Murkiva)
+}

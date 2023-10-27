@@ -8,7 +8,7 @@
 }*/
 
 .coint-clima {
-    /* background: #171717; */
+    background: #171717;
     color: #fff;
     padding: 1rem;
     
@@ -145,3 +145,4 @@
         grid-template-columns: none;
     }
 }
+

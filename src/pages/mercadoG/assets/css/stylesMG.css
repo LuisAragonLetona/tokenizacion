@@ -1,0 +1,357 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@500&family=Montserrat:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Rutas de colores ==========*/
+  /*Colores modo HSL(Tono/matiz, saturasion, brillo)*/
+  --first-color: hsl(230, 62%, 56%);
+  --title-color: hsl(230, 70%, 16%);
+  --text-color: hsl(230, 16%, 45%);
+  --border-color: hsl(230, 50%, 90%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(230, 100%, 96%);
+  --container-color: hsl(230, 100%, 97%);
+
+  /*========== Fuente tipografia ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --second-font: "Montagu Slab", serif;
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== tamaño de fuentes ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Tipografia Escalable==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+input,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: background-color .4s;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-medium);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+/*=============== Clases css rehusables ===============*/
+.container {
+  max-width: 100%; 
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 1rem;
+}
+
+.section__title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  font-family: var(--second-font);
+  margin-bottom: 2rem;
+}
+
+.main {
+  overflow: hidden;
+  /* solo para animacion del scroll */
+}
+
+
+/*=============== Inicio ===============*/
+.home__swiper {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.home__container {
+  padding-top: 2rem;
+  row-gap: 2.5rem;
+  width: 90%; /* Ocupa el 80% del contenedor padre */
+  margin: 0 auto; /* Centra el container horizontalmente */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide en dos columnas iguales dentro del 80% del contenedor padre */
+  align-items: center;
+  padding: 7rem 2rem;
+}
+
+.home__data {
+  text-align: initial;
+}
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  margin-bottom: 1rem;
+}
+
+.home__description {
+  margin-bottom: 4rem;
+}
+
+.home__images {
+  display: grid;
+}
+
+.home__article,
+.home__img {
+  width: 450px;
+  transition: scale .4s;
+}
+
+.home__article{
+  scale: .8;
+}
+
+/* Swiper clase*/
+.swiper-slide-active,
+.swiper-slide-duplicate-active {
+  scale: 1;
+}
+
+
+.imagen-producto {
+  max-width: 300px; /* Establece el ancho máximo de la imagen */
+  max-height: 600px; /* Establece la altura máxima de la imagen */
+  width: auto; /* Permite que el ancho se ajuste automáticamente según la altura máxima */
+  height: auto; /* Permite que la altura se ajuste automáticamente según el ancho máximo */
+  margin-top: 30px;
+  transition: transform 0.3s ease-in-out; /* Agrega una transición suave al efecto de escala */
+  box-shadow: 0 12px 5px rgba(0, 0, 0, 0.5); /* Agrega una sombra a las imágenes */
+  border-radius: 20px;
+}
+
+.imagen-producto:hover {
+  transform: scale(1.2); /* Escala la imagen al 120% cuando el cursor está sobre ella */
+}
+
+.tabla-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas con igual ancho */
+  grid-gap: 10px; /* Espacio entre las celdas */
+}
+
+.celda {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo-producto {
+  font-size: 16px; /* Ajusta el tamaño del texto del título según tus preferencias */
+  font-weight: bold; /* Aplica negrita al texto del título */
+  margin-top: 5px; /* Ajusta el margen superior del título según tus necesidades */
+}
+/*=============== BOTON===============*/
+.buttonMercat {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+  padding: 1rem 1.5rem;
+  transition: box-shadow .4s;
+}
+
+.buttonMercat:hover {
+  box-shadow: 0 4px 32px hsla(230, 72%, 32%, .4);
+}
+
+/*=============== Nuevos NFTS ===============*/
+.new__card {
+  display: flex;
+  align-items: center;
+  column-gap: 2.5rem;
+  background-color: var(--container-color);
+  padding: 1.5rem;
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+  transition: border .4s background-color .4s;
+  
+}
+
+.new__card:hover {
+  border: 2px solid var(--text-color);
+}
+
+.new__img {
+  width: 100px;
+}
+
+.new__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: .5rem;
+}
+
+.new__prices {
+  display: flex;
+  align-items: center;
+  column-gap: .75rem;
+  margin-bottom: .75rem;
+}
+
+.new__discount {
+  color: var(--title-color);
+}
+
+.new__price {
+  font-size: var(--small-font-size);
+  text-decoration: line-through;
+}
+
+.new__stars {
+  color: var(--first-color);
+}
+
+.new__swiper:nth-child(1) {
+  margin-bottom: 2rem;
+}
+
+
+/*=============== desarolladores ===============*/
+.testimonial__card{ 
+  text-align: center;
+  background-color: var(--container-color);
+  padding: 2rem 3rem 2.5rem;
+  border: 2px solid var(--border-color);
+  transition: border .4s background-color .4s;
+}
+
+.testimonial__img {
+  width: 100px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+}
+
+.testimonial__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: .75rem;
+}
+
+.testimonial__description {
+  font-size: var(--small-font-size);
+margin-bottom: 1.25rem;
+}
+
+.testimonial__stars {
+  color: var(--first-color);
+
+}
+
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: .6rem;
+  border-radius: .5rem;
+  background-color: hsl(230, 16%, 85%);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: .5rem;
+  background-color: hsl(230, 16%, 65%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(230, 16%, 55%);
+}
+
+/* Dispositivos grandes */
+@media screen and (max-width: 1220px) {
+  .home__container {
+    grid-template-columns: 1fr; 
+  }
+
+  .new__container{
+    width: 80%; 
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1221px) {
+  .new__container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .testimonial__container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+

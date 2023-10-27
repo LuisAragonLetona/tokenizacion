@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import Principal from '../pages/Principal';
 import Sesion from '../pages/Sesion';
-import Mercado from '../pages/Mercado';
+import TokenMallMercado from '../pages/mercadoG/TokenMallMercado';
 import General from '../pages/General';
 import Mensajes from '../pages/Mensajes';
 import Perfil from '../pages/Perfil';
@@ -42,7 +42,7 @@ const Rutas = (user, setUser) => {
       path: '/',
       children: [
         { path: 'sesion', element: <Sesion setUser={setUser} /> },
-        { path: 'mercado', element: <Mercado setUser={setUser} /> },
+        { path: 'TokenMallMercado', element: <TokenMallMercado setUser={setUser} /> },
         { path: 'perfil', element: <Perfil user={user} setUser={setUser} /> },
         { path: 'mensajes', element: <Mensajes setUser={setUser} /> },
         { path: 'MiCrt', element: <MiCrt setUser={setUser} /> },

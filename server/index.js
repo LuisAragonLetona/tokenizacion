@@ -9,7 +9,8 @@ app.use(express.json());
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "admin",
+    password: "",
+    password: "",
     database: "tokenmall"
 });
 
@@ -82,6 +83,19 @@ app.delete("/delete/:id", (req, res) => {
             console.log(err);
         } else {
             res.send(result);
+        }
+    });
+});
+
+app.post("/soporte", (req, res) => {
+    const nombre = req.body.nombre;
+    const correo = req.body.correo;
+    const mensaje = req.body.mensaje;
+    db.query('INSERT INTO soporte(nombre, correo, mensaje) VALUES (?,?,?)', [nombre, correo, mensaje], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send("Mensaje registrado con éxito!!");
         }
     });
 });

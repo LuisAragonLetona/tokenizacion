@@ -1,24 +1,3 @@
-
-/* 
-  body{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fae9fb;
-    position: relative;
-  }
-  body::before{
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background: #ba24c2;
-    clip-path: polygon(86% 0, 100% 0, 100% 100%, 60% 100%);
-  } */
   .mi-contenedor {
     z-index: 12;
     max-width: 1050px;
@@ -118,13 +97,13 @@
     font-size: 16px;
     color: #636c72;
     left: 18px;
-    top: 6px;
+    top: 35px;
     pointer-events: none;
     transition: all 0.3s ease;
   }
   .cont .mensaje-box textarea:focus ~ label{
     left: 12px;
-    top: -10px;
+    top: -15px;
     color: #ba24c2;
     font-size: 14px;
     background: #fff;

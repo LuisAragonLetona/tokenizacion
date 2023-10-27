@@ -42,7 +42,7 @@ export default function Sesion(props) {
     });
 
     const formik = useFormik({
-        initialValues: {
+    initialValues: {
             nombre: '',
             email: '',
             pass: '',
@@ -150,7 +150,7 @@ export default function Sesion(props) {
                     <span id="txtLogin"></span>
                 </div>
                 <div className="welcome-back">
-                    <div className="message">
+                    <div className="message-sesion">
                         <h2>Bienvenido de nuevo</h2>
                         <p>Si aun no tienes una cuenta por favor registrate aquí</p>
                         <button type="submit" className="sign-in-btn" onClick={handleToggle}>Registrarse</button>

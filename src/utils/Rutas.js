@@ -12,6 +12,7 @@ import Soporte from '../pages/Soporte';
 import RegistroTokens from '../pages/RegistroTokens';
 import MiCrt from '../pages/sub_RT/MiCrt';
 import Formulario from '../pages/Formulario';
+import { Personas } from '../pages/Personas';
 
 const Rutas = (user, setUser) => {
   const routes = [
